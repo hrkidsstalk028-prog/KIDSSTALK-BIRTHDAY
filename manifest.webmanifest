@@ -1,0 +1,55 @@
+{
+  "name": "Kidss Talk Birthdays",
+  "short_name": "KT Birthdays",
+  "description": "Employee birthdays, weekly celebration cards and WhatsApp messages for the Kidss Talk HR team.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "id": "kidss-talk-birthday",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#09090B",
+  "theme_color": "#09090B",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "This week's birthdays",
+      "short_name": "This week",
+      "url": "./index.html#week"
+    },
+    {
+      "name": "People",
+      "short_name": "People",
+      "url": "./index.html#people"
+    },
+    {
+      "name": "Calendar",
+      "short_name": "Calendar",
+      "url": "./index.html#cal"
+    }
+  ]
+}

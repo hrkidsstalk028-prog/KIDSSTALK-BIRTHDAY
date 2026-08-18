@@ -1,0 +1,2894 @@
+<!DOCTYPE html>
+<html lang="en-IN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kidss Talk Birthdays</title>
+<meta name="description" content="Employee birthdays, weekly celebration cards and WhatsApp messages for Kidss Talk HR.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#09090B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="KT Birthdays">
+<meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+/* ==========================================================================
+   KIDSS TALK BIRTHDAYS — design tokens
+   ========================================================================== */
+:root{
+  --bg:#08090D; --surface:#101119; --card:#161720; --elev:#1D1F2A; --elev2:#272936;
+  --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.14);
+  --ink:#F7F7FA; --ink2:#A5A7B4; --ink3:#717481;
+  --gold:#E9C46A; --pink:#FF6FAE; --violet:#9B7BFF; --blue:#5CC8FF; --cyan:#5CC8FF; --peach:#FFB38A;
+  --grad-a:linear-gradient(135deg,#9B7BFF 0%,#FF6FAE 100%);
+  --grad-b:linear-gradient(135deg,#5CC8FF 0%,#9B7BFF 100%);
+  --grad-c:linear-gradient(135deg,#FFB38A 0%,#E9C46A 100%);
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px; --s6:24px; --s7:32px;
+  --gut:16px;                       /* page margin, mobile and up */
+  --r-xs:8px; --r-sm:12px; --r:16px; --r-lg:20px; --r-xl:24px;
+  --shadow:0 22px 44px -26px rgba(0,0,0,.95);
+  --shadow-lift:0 26px 50px -24px rgba(0,0,0,1);
+  --tap:44px;
+  --bar:calc(66px + env(safe-area-inset-bottom));
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html[data-theme="light"]{
+  --bg:#F6F5F8; --surface:#FFFFFF; --card:#FFFFFF; --elev:#F2F1F6; --elev2:#E8E7EE;
+  --line:rgba(16,14,26,.09); --line2:rgba(16,14,26,.16);
+  --ink:#16151C; --ink2:#5C5B68; --ink3:#8B8A96;
+  --gold:#B8863B; --pink:#E03A7C; --violet:#6D4BE0; --blue:#1F82C7;
+  --shadow:0 18px 34px -26px rgba(20,16,40,.5);
+  --shadow-lift:0 22px 40px -24px rgba(20,16,40,.55);
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg); color:var(--ink); min-height:100vh; min-height:100dvh;
+  font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:15px; line-height:1.5; letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-wrap:break-word;
+}
+/* Backstop only. Every known overflow source is fixed below; this catches
+   anything a future edit introduces without breaking sticky positioning. */
+html{overflow-x:clip}
+body::before{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(90vw 60vh at 8% -8%, rgba(155,123,255,.16), transparent 62%),
+    radial-gradient(70vw 50vh at 108% 4%, rgba(255,92,154,.11), transparent 60%),
+    radial-gradient(80vw 60vh at 50% 112%, rgba(92,200,255,.07), transparent 62%);
+}
+html[data-theme="light"] body::before{
+  background:
+    radial-gradient(90vw 60vh at 8% -8%, rgba(109,75,224,.10), transparent 62%),
+    radial-gradient(70vw 50vh at 108% 4%, rgba(224,58,124,.08), transparent 60%);
+}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue); outline-offset:3px; border-radius:8px}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+::selection{background:rgba(155,123,255,.35)}
+
+/* ---------- type scale ---------- */
+.display{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.015em;
+  line-height:1.06;overflow-wrap:anywhere}
+.d-xl{font-size:clamp(26px,8vw,34px)}
+.d-lg{font-size:clamp(24px,7vw,30px)}
+.d-md{font-size:clamp(21px,6.2vw,28px)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
+h1,h2,h3{margin:0;letter-spacing:-.03em}
+.h-page{font-size:clamp(24px,6.6vw,28px);font-weight:800;min-width:0;line-height:1.18}
+.h-sec{font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.3}
+.muted{color:var(--ink2)}
+.tiny{font-size:13px;line-height:1.5}
+.nowrap{white-space:nowrap}
+
+/* ---------- app frame ---------- */
+.app{max-width:1360px;margin:0 auto;display:block}
+.side{display:none}
+main{padding:0 var(--gut) calc(var(--bar) + var(--s7));max-width:100%}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  padding:calc(env(safe-area-inset-top) + var(--s4)) var(--gut) var(--s3);
+  display:flex;align-items:center;gap:var(--s3);
+  background:linear-gradient(180deg,var(--bg) 62%,rgba(9,9,11,0));
+}
+html[data-theme="light"] .topbar{background:linear-gradient(180deg,var(--bg) 58%,rgba(246,245,248,0))}
+/* brand mark: gold spark on a dark tile, one visual language everywhere */
+.brandmark{width:40px;height:40px;border-radius:var(--r-sm);flex:none;display:grid;place-items:center;
+  background:linear-gradient(150deg,#241C3F,#12121B);border:1px solid rgba(233,196,106,.28);
+  box-shadow:0 8px 22px -12px rgba(233,196,106,.7)}
+.brandmark svg{width:23px;height:23px;color:var(--gold)}
+.brandtxt{flex:1;min-width:0}
+.brandtxt b{display:block;font-size:14px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brandtxt span{display:block;font-size:12px;color:var(--ink3);letter-spacing:.01em;margin-top:1px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* greeting: two compact lines, never more than a fifth of the screen */
+.greeting{margin:var(--s1) 0 var(--s5)}
+.greeting b{display:block;font-size:20px;font-weight:800;letter-spacing:-.03em}
+.greeting span{display:block;font-size:14px;color:var(--ink2);margin-top:var(--s1)}
+.iconbtn{
+  width:var(--tap);height:var(--tap);border-radius:14px;display:grid;place-items:center;flex:none;
+  background:var(--card);border:1px solid var(--line);color:var(--ink2);
+  transition:transform .18s var(--ease),color .18s,border-color .18s,background .18s;
+}
+.iconbtn:hover{color:var(--ink);border-color:var(--line2);transform:translateY(-1px)}
+.iconbtn:active{transform:scale(.94)}
+.iconbtn svg{width:20px;height:20px}
+.iconbtn.on{color:var(--violet);border-color:rgba(155,123,255,.4);background:rgba(155,123,255,.12)}
+
+/* ---------- bottom navigation ---------- */
+.tabbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  display:grid;grid-template-columns:repeat(5,1fr);
+  padding:8px 8px calc(env(safe-area-inset-bottom) + 8px);
+  background:var(--surface);
+  background:color-mix(in srgb, var(--surface) 84%, transparent);
+  backdrop-filter:blur(22px) saturate(140%); -webkit-backdrop-filter:blur(22px) saturate(140%);
+  border-top:1px solid var(--line);
+}
+.tabbar button{
+  position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  min-height:52px;padding:7px 1px 5px;border-radius:14px;color:var(--ink3);min-width:0;
+  font-size:10.5px;font-weight:600;letter-spacing:0;white-space:nowrap;
+  transition:color .2s var(--ease);
+}
+.tabbar button svg{width:22px;height:22px;transition:transform .28s var(--ease)}
+.tabbar button[aria-current="page"]{color:var(--ink)}
+.tabbar button[aria-current="page"] svg{transform:translateY(-1px) scale(1.06);color:var(--violet)}
+.tabbar button[aria-current="page"]::before{
+  content:"";position:absolute;top:2px;left:50%;transform:translateX(-50%);
+  width:26px;height:3px;border-radius:3px;background:var(--grad-a);
+  box-shadow:0 0 14px 1px rgba(155,123,255,.75);
+}
+.tabbar button::after{content:"";position:absolute;inset:0}
+
+/* ---------- surfaces ---------- */
+.card{
+  background:var(--card);
+  background:linear-gradient(180deg,var(--card),color-mix(in srgb,var(--card) 82%, var(--bg)));
+  border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow);
+}
+.pad{padding:var(--s4)}
+.sec{margin:var(--s6) 0 0}
+.sec-head{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);margin:0 0 var(--s3)}
+.sec-head .link{font-size:13px;font-weight:600;color:var(--violet);min-height:44px;
+  display:inline-flex;align-items:center;padding:0 4px;flex:none}
+.stack{display:grid;gap:var(--s3)}
+.row{display:flex;align-items:center;gap:12px;min-width:0}
+.row>*{min-width:0}
+.spread{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;min-width:0}
+.spread>*{min-width:0}
+.divider{height:1px;background:var(--line);margin:var(--s4) 0}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);
+  min-height:52px;padding:0 var(--s5);border-radius:var(--r);
+  font-size:14.5px;font-weight:700;letter-spacing:-.01em;
+  transition:transform .18s var(--ease),box-shadow .22s,filter .2s,background .2s,border-color .2s;
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--grad-a);color:#fff;box-shadow:0 14px 28px -14px rgba(155,123,255,.95)}
+.btn-primary:hover{filter:brightness(1.07);box-shadow:0 18px 34px -14px rgba(255,92,154,.85)}
+.btn-gold{background:var(--grad-c);color:#1A1206;box-shadow:0 14px 28px -14px rgba(245,199,107,.8)}
+.btn-ghost{background:var(--elev);border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--line2);background:var(--elev2)}
+.btn-quiet{background:transparent;border:1px solid var(--line);color:var(--ink2)}
+.btn-quiet:hover{color:var(--ink);border-color:var(--line2)}
+.btn-danger{background:rgba(255,92,154,.13);border:1px solid rgba(255,92,154,.35);color:#FF89B4}
+.btn-danger:hover{background:rgba(255,92,154,.2)}
+.btn-block{width:100%}
+.btn-tight{padding:0 var(--s3);gap:6px}     /* paired buttons on narrow screens */
+.btn-sm{min-height:44px;padding:0 var(--s4);font-size:14px;border-radius:var(--r-sm)}
+.btn-sm svg{width:16px;height:16px}
+.btn>span{min-width:0;overflow-wrap:anywhere}
+.btnrow{display:grid;grid-template-columns:1fr;gap:var(--s3)}
+.btnrow>.btn{width:100%}
+@media (min-width:480px){
+  .btnrow{grid-auto-flow:column;grid-auto-columns:1fr;grid-template-columns:none}
+}
+
+/* ---------- chips ---------- */
+.chips{display:flex;gap:var(--s2);overflow-x:auto;padding:2px 2px var(--s1);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:none;min-height:42px;padding:0 14px;border-radius:12px;display:inline-flex;align-items:center;gap:7px;
+  background:var(--elev);border:1px solid var(--line);color:var(--ink2);
+  font-size:13px;font-weight:600;white-space:nowrap;transition:.18s var(--ease);
+}
+.chip:hover{color:var(--ink)}
+.chip[aria-pressed="true"],.chip.on{background:rgba(155,123,255,.16);border-color:rgba(155,123,255,.42);color:#D9CBFF}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:99px;
+  font-size:11.5px;font-weight:700;letter-spacing:.02em;background:var(--elev);color:var(--ink2);border:1px solid var(--line)}
+.pill svg{width:13px;height:13px}
+.pill-gold{background:rgba(245,199,107,.13);border-color:rgba(245,199,107,.34);color:var(--gold)}
+.pill-pink{background:rgba(255,92,154,.13);border-color:rgba(255,92,154,.34);color:#FF89B4}
+.pill-violet{background:rgba(155,123,255,.15);border-color:rgba(155,123,255,.36);color:#C7B6FF}
+
+/* ---------- avatars ---------- */
+.av{
+  width:46px;height:46px;border-radius:16px;flex:none;display:grid;place-items:center;
+  font-weight:800;font-size:15px;letter-spacing:-.02em;color:#fff;position:relative;
+}
+.av.lg{width:76px;height:76px;border-radius:26px;font-size:26px}
+.av.sm{width:34px;height:34px;border-radius:12px;font-size:12.5px}
+.av::after{content:"";position:absolute;inset:0;border-radius:inherit;border:1px solid rgba(255,255,255,.16)}
+
+/* ---------- hero celebration ---------- */
+.hero{
+  position:relative;overflow:hidden;border-radius:var(--r-xl);
+  padding:var(--s6) var(--s5);display:flex;flex-direction:column;align-items:center;gap:0;
+  background:linear-gradient(165deg,#241640 0%,#3B1740 46%,#1A1024 100%);
+  border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px -30px rgba(155,60,180,.8);
+  text-align:center;
+}
+html[data-theme="light"] .hero{background:linear-gradient(165deg,#3A2154 0%,#5A2450 48%,#2B1636 100%);color:#fff}
+.hero .blob{position:absolute;border-radius:50%;filter:blur(42px);opacity:.55;pointer-events:none}
+.hero .b1{width:230px;height:230px;background:#9B7BFF;top:-110px;left:-70px;animation:drift 15s ease-in-out infinite}
+.hero .b2{width:210px;height:210px;background:#FF5C9A;bottom:-120px;right:-60px;animation:drift 18s ease-in-out infinite reverse}
+.hero .b3{width:150px;height:150px;background:#F5C76B;top:40%;right:-80px;opacity:.3;animation:drift 22s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(16px,-18px,0)}}
+.hero>*{position:relative;z-index:1}
+.hero .cake{width:44px;height:44px;margin:0 0 var(--s3);color:#fff;filter:drop-shadow(0 8px 18px rgba(245,199,107,.55))}
+.hero .cake svg{width:100%;height:100%}
+.hero .kicker{font-size:clamp(10px,2.9vw,11px);font-weight:800;letter-spacing:.26em;
+  text-transform:uppercase;color:rgba(255,255,255,.72)}
+.hero .name{
+  font-family:"Instrument Serif",Georgia,serif;font-size:clamp(30px,8.8vw,48px);line-height:1.08;
+  margin:var(--s2) 0 var(--s2);color:#fff;letter-spacing:-.01em;overflow-wrap:anywhere;max-width:100%;
+  text-shadow:0 6px 30px rgba(255,92,154,.45);
+}
+.hero .meta{font-size:13px;font-weight:600;color:rgba(255,255,255,.82);letter-spacing:.01em;
+  line-height:1.5;overflow-wrap:anywhere}
+.hero .wish{margin:var(--s4) 0 var(--s5);max-width:32ch;font-size:14px;line-height:1.6;color:rgba(255,255,255,.86)}
+.hero .sprinkle{font-size:17px;letter-spacing:.4em;margin:0 0 var(--s4);padding-left:.4em}
+.hero .btn-ghost{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.22);color:#fff}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero .dots{display:flex;gap:6px;justify-content:center;margin-top:var(--s4)}
+.hero .dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3)}
+.hero .dots i.on{background:#fff;width:18px;border-radius:3px}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:70}
+
+/* quiet hero — no birthday today */
+.hero-quiet{
+  position:relative;overflow:hidden;border-radius:var(--r-xl);padding:var(--s5) var(--s4);
+  background:var(--card);
+  background:linear-gradient(165deg,color-mix(in srgb,var(--card) 92%,#2A2350),var(--card));
+  border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.hero-quiet .glowring{width:48px;height:48px;flex:none;border-radius:var(--r);display:grid;place-items:center;
+  background:rgba(155,123,255,.12);border:1px solid rgba(155,123,255,.28);color:var(--violet)}
+.hero-quiet .glowring svg{width:24px;height:24px}
+.hero-quiet .qtop{display:flex;align-items:center;gap:var(--s3)}
+.hero-quiet .qnext{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s4);
+  padding-top:var(--s4);border-top:1px solid var(--line)}
+
+/* ---------- week timeline (mobile-first, vertical) ---------- */
+.tl{display:grid;gap:var(--s3)}
+.tl-item{display:grid;grid-template-columns:52px 1fr;gap:var(--s3);align-items:start;position:relative}
+.tl-when{padding-top:var(--s3);text-align:center;min-width:0}
+.tl-when .dow{display:block;font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--ink3)}
+.tl-when .num{display:block;font-size:22px;font-weight:800;letter-spacing:-.04em;line-height:1.2;margin-top:2px}
+.tl-item.today .tl-when .dow,.tl-item.today .tl-when .num{color:var(--gold)}
+.tl-card{display:flex;align-items:center;gap:var(--s3);width:100%;min-width:0;text-align:left;
+  padding:var(--s3) var(--s4);border-radius:var(--r);background:var(--card);border:1px solid var(--line);
+  transition:.18s var(--ease)}
+.tl-card:hover{border-color:var(--line2);transform:translateY(-1px)}
+.tl-card:active{transform:scale(.995)}
+.tl-item.today .tl-card{background:linear-gradient(100deg,rgba(245,199,107,.13),rgba(255,92,154,.07));
+  border-color:rgba(245,199,107,.38)}
+.tl-card .nm{font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.28;overflow-wrap:anywhere}
+.tl-card .sub{font-size:13px;color:var(--ink3);margin-top:2px;line-height:1.4;overflow-wrap:anywhere}
+.tl-rule{height:1px;background:var(--line);margin:var(--s1) 0 var(--s1) 64px}
+
+/* ---------- upcoming ---------- */
+.urow{display:flex;align-items:center;gap:var(--s3);width:100%;min-width:0;text-align:left;
+  padding:var(--s3) var(--s4);border-radius:var(--r);background:var(--card);border:1px solid var(--line);
+  transition:.18s var(--ease)}
+.urow:hover{border-color:var(--line2)}
+.urow:active{transform:scale(.995)}
+.urow .who{flex:1;min-width:0}
+.urow .nm{font-size:16px;font-weight:700;letter-spacing:-.02em;line-height:1.3;overflow-wrap:anywhere}
+.urow .sub{font-size:13px;color:var(--ink3);margin-top:2px;overflow-wrap:anywhere}
+.urow .end{flex:none;text-align:right;font-size:13px;font-weight:700;color:var(--gold);white-space:nowrap}
+
+/* ---------- employee card ---------- */
+.plist{display:grid;gap:var(--s3)}
+.pcard{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--s3);
+  width:100%;max-width:100%;box-sizing:border-box;text-align:left;
+  padding:var(--s3) var(--s3) var(--s3) var(--s4);
+  border-radius:var(--r);background:var(--card);border:1px solid var(--line);
+  transition:.18s var(--ease);
+}
+.pcard:hover{border-color:var(--line2);transform:translateY(-1px);box-shadow:var(--shadow)}
+.pcard:active{transform:scale(.995)}
+.pcard .who{min-width:0;display:block;padding:0;background:none;border:0;font:inherit;color:inherit}
+.pcard .nm,.pcard .sub,.pcard .bd{display:block}
+.pcard .nm{font-size:18px;font-weight:700;letter-spacing:-.025em;line-height:1.26;overflow-wrap:anywhere}
+.pcard .sub{font-size:13px;color:var(--ink2);margin-top:3px;line-height:1.4;overflow-wrap:anywhere}
+.pcard .bd{display:flex;align-items:center;gap:6px;margin-top:var(--s2);
+  font-size:13px;font-weight:600;color:var(--gold)}
+.pcard .bd svg{width:14px;height:14px;flex:none}
+.pcard .bd.none{color:var(--ink3);font-weight:500}
+.pcard .kebab{width:40px;height:40px;border-radius:var(--r-sm);display:grid;place-items:center;
+  color:var(--ink3);flex:none}
+.pcard .kebab:hover{color:var(--ink);background:var(--elev)}
+.pcard .kebab svg{width:18px;height:18px}
+.pcard.is-today{background:linear-gradient(100deg,rgba(245,199,107,.13),rgba(255,92,154,.07));
+  border-color:rgba(245,199,107,.4)}
+
+/* ---------- install banner ---------- */
+.installcard{margin:0 0 var(--s5);padding:var(--s4);border-radius:var(--r);
+  background:linear-gradient(150deg,rgba(155,123,255,.16),rgba(255,111,174,.08));
+  border:1px solid rgba(155,123,255,.32)}
+.installcard .ic{width:38px;height:38px;flex:none;border-radius:var(--r-sm);display:grid;place-items:center;
+  background:rgba(233,196,106,.14);color:var(--gold)}
+.installcard .ic svg{width:19px;height:19px}
+
+/* ---------- week navigator ---------- */
+.weeknav{display:flex;align-items:center;gap:var(--s3);margin:0 0 var(--s4)}
+.weeknav .lbl{flex:1;min-width:0;text-align:center}
+.weeknav .lbl b{display:block;font-size:16px;font-weight:700;letter-spacing:-.02em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.weeknav .lbl span{display:block;font-size:12px;color:var(--ink3);margin-top:1px}
+
+/* ---------- settings / navigation rows ---------- */
+.srow{display:flex;align-items:center;gap:var(--s3);width:100%;min-width:0;text-align:left;
+  min-height:60px;padding:var(--s3) var(--s4);border-radius:var(--r);
+  background:var(--card);border:1px solid var(--line);transition:.18s var(--ease)}
+.srow:hover{border-color:var(--line2)}
+.srow:active{transform:scale(.995)}
+.srow .ic{width:38px;height:38px;flex:none;border-radius:var(--r-sm);display:grid;place-items:center;
+  background:var(--elev);color:var(--violet)}
+.srow .ic svg{width:18px;height:18px}
+.srow .who{flex:1;min-width:0}
+.srow .nm{font-size:15px;font-weight:700;letter-spacing:-.02em;line-height:1.3;overflow-wrap:anywhere}
+.srow .sub{font-size:13px;color:var(--ink3);margin-top:2px;line-height:1.4;overflow-wrap:anywhere}
+.srow .end{flex:none;color:var(--ink3);display:flex}
+.srow .end svg{width:18px;height:18px}
+
+/* ---------- countdown ---------- */
+.count{display:grid;gap:14px}
+.bar{height:6px;border-radius:99px;background:var(--elev);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:var(--grad-b);transition:width .6s var(--ease)}
+
+/* ---------- search + fields ---------- */
+.search{position:relative}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink3)}
+.search input{
+  width:100%;min-height:52px;padding:0 40px 0 44px;border-radius:var(--r);
+  background:var(--card);border:1px solid var(--line);font-size:15px;
+}
+.search input::placeholder{color:var(--ink3)}
+.search input:focus{outline:none;border-color:rgba(155,123,255,.5);box-shadow:0 0 0 3px rgba(155,123,255,.13)}
+.search .clr{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:34px;height:34px;
+  border-radius:10px;display:grid;place-items:center;color:var(--ink3)}
+.search .clr svg{position:static;transform:none;width:16px;height:16px}
+
+.field{position:relative;margin-top:14px}
+.field>input,.field>select,.field>textarea{
+  width:100%;min-height:56px;padding:22px 14px 8px;border-radius:16px;
+  background:var(--elev);border:1px solid var(--line);font-size:15.5px;font-weight:600;letter-spacing:-.01em;
+  appearance:none;-webkit-appearance:none;
+}
+.field>textarea{min-height:150px;padding-top:26px;font-weight:500;font-size:14px;line-height:1.6;resize:vertical;font-family:inherit}
+.field>select{background-image:none}
+.field>label{
+  position:absolute;left:15px;top:17px;font-size:15px;color:var(--ink3);pointer-events:none;
+  transition:.16s var(--ease);font-weight:500;
+}
+.field>input:focus,.field>select:focus,.field>textarea:focus{
+  outline:none;border-color:rgba(155,123,255,.55);background:var(--elev2);box-shadow:0 0 0 3px rgba(155,123,255,.13)}
+.field>input:focus~label,.field>input:not(:placeholder-shown)~label,
+.field>textarea:focus~label,.field>textarea:not(:placeholder-shown)~label,
+.field>select:focus~label,.field.filled>label{
+  top:8px;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
+.field .caret{position:absolute;right:14px;top:20px;width:16px;height:16px;color:var(--ink3);pointer-events:none}
+.field.err>input,.field.err>select{border-color:rgba(255,92,154,.6)}
+.fielderr{font-size:12px;color:#FF89B4;margin:6px 4px 0;font-weight:600}
+input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(.7);opacity:.6}
+html[data-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator{filter:none}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0}
+.switch .tgl{width:50px;height:30px;border-radius:99px;background:var(--elev2);position:relative;flex:none;transition:.22s var(--ease);border:1px solid var(--line)}
+.switch .tgl i{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink2);transition:.22s var(--ease)}
+.switch [aria-pressed="true"].tgl{background:var(--grad-a);border-color:transparent}
+.switch [aria-pressed="true"].tgl i{left:23px;background:#fff}
+
+/* ---------- calendar ---------- */
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal .dow{font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--ink3);text-align:center;padding:4px 0 6px}
+.cell{
+  aspect-ratio:1/1;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  background:var(--card);border:1px solid transparent;font-weight:600;color:var(--ink2);
+  font-size:clamp(12.5px,3.7vw,15px);min-width:0;
+  transition:.16s var(--ease);position:relative;
+}
+.cell.blank{background:transparent;border:0}
+.cell:not(.blank):hover{border-color:var(--line2)}
+.cell .bd{width:5px;height:5px;border-radius:50%;background:var(--pink);box-shadow:0 0 7px 1px rgba(255,92,154,.75)}
+.cell.has{background:linear-gradient(180deg,rgba(155,123,255,.18),rgba(255,92,154,.08));color:var(--ink);font-weight:800;border-color:rgba(155,123,255,.3)}
+.cell.today{border-color:var(--gold);color:var(--gold)}
+.cell[aria-pressed="true"]{background:var(--grad-a);color:#fff;border-color:transparent}
+.cell[aria-pressed="true"] .bd{background:#fff;box-shadow:none}
+
+/* ---------- message card ---------- */
+.msgcard{
+  border-radius:var(--r-lg);padding:20px;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,rgba(155,123,255,.16),rgba(255,92,154,.09));
+  border:1px solid rgba(155,123,255,.3);
+}
+.msgcard .body{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14.5px;line-height:1.65;
+  text-align:left;color:var(--ink)}
+.msgcard .cakeicon{width:40px;height:40px;margin:0 auto 10px;color:var(--gold)}
+
+/* ---------- sheets / modals ---------- */
+.scrim{position:fixed;inset:0;z-index:80;background:rgba(4,4,8,.68);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  opacity:0;transition:opacity .26s var(--ease)}
+.scrim.show{opacity:1}
+.sheet{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;max-height:92vh;max-height:92dvh;display:flex;flex-direction:column;
+  background:var(--surface);border-top:1px solid var(--line2);
+  border-radius:28px 28px 0 0;box-shadow:0 -30px 60px -30px rgba(0,0,0,.95);
+  transform:translateY(102%);transition:transform .34s var(--ease);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.sheet.show{transform:translateY(0)}
+.sheet .grab{width:40px;height:4px;border-radius:99px;background:var(--elev2);margin:10px auto 2px;flex:none}
+.sheet.full{top:0;max-height:none;height:100vh;height:100dvh;border-radius:0;
+  transform:translateY(100%);padding-top:env(safe-area-inset-top)}
+.sheet.full.show{transform:translateY(0)}
+.sheet.full .grab{display:none}
+.sheet.full .shead{padding:var(--s3) var(--s4);border-bottom:1px solid var(--line);gap:var(--s2)}
+.sheet.full .sbody{padding:var(--s4) var(--gut) var(--s6)}
+.sheet .shead{display:flex;align-items:center;gap:12px;padding:10px 16px 12px;flex:none}
+.sheet .shead h2{flex:1;min-width:0;font-size:clamp(17px,4.9vw,19px);font-weight:800;letter-spacing:-.03em;
+  line-height:1.25;overflow-wrap:anywhere}
+.sheet .sbody{overflow-y:auto;overflow-x:hidden;padding:2px var(--gut) var(--s5);-webkit-overflow-scrolling:touch}
+.sheet .sfoot{flex:none;padding:var(--s3) var(--gut) calc(var(--s3) + env(safe-area-inset-bottom));border-top:1px solid var(--line);
+  background:var(--surface);display:flex;flex-direction:column-reverse;gap:10px}
+.sheet .sfoot .btn{flex:1 1 auto;width:100%}
+@media (min-width:400px){
+  .sheet .sfoot{flex-direction:row}
+  .sheet .sfoot .btn{width:auto}
+}
+
+/* ---------- toast ---------- */
+.toasts{position:fixed;left:0;right:0;bottom:calc(var(--bar) + 14px);z-index:100;display:grid;gap:8px;
+  justify-items:center;pointer-events:none;padding:0 16px}
+.toast{
+  display:flex;align-items:center;gap:10px;max-width:420px;
+  padding:12px 16px;border-radius:15px;background:var(--elev2);border:1px solid var(--line2);
+  color:var(--ink);font-size:14px;font-weight:600;box-shadow:var(--shadow-lift);
+  animation:toastin .3s var(--ease);
+}
+.toast svg{width:17px;height:17px;flex:none;color:var(--gold)}
+.toast.ok svg{color:#5BE3A0}
+.toast.bad svg{color:#FF89B4}
+@keyframes toastin{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+
+/* ---------- empty state ---------- */
+.empty{text-align:center;padding:var(--s7) var(--s5)}
+.empty .ic{width:64px;height:64px;margin:0 auto 14px;border-radius:22px;display:grid;place-items:center;
+  background:var(--elev);border:1px solid var(--line);color:var(--ink3)}
+.empty .ic svg{width:28px;height:28px}
+.empty b{display:block;font-size:16px;font-weight:800;letter-spacing:-.02em}
+.empty p{margin:6px auto 0;max-width:30ch;font-size:13.5px;color:var(--ink3);line-height:1.55}
+.empty .btn{margin-top:18px}
+
+/* ---------- report preview ---------- */
+.reportwrap{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);background:#0B0B12;box-shadow:var(--shadow)}
+.reportwrap canvas{display:block;width:100%;height:auto}
+.pagenav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:12px}
+
+/* ---------- import preview ---------- */
+.tblwrap{overflow:auto;border:1px solid var(--line);border-radius:var(--r-sm);max-height:46vh}
+table.mini{width:100%;border-collapse:collapse;font-size:13px;min-width:460px}
+table.mini th{position:sticky;top:0;background:var(--elev);text-align:left;padding:9px 10px;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:800;border-bottom:1px solid var(--line)}
+table.mini td{padding:9px 10px;border-bottom:1px solid var(--line);color:var(--ink2)}
+table.mini tr.bad td{background:rgba(255,92,154,.09);color:#FF9EC0}
+table.mini tr.dup td{background:rgba(245,199,107,.08)}
+
+/* ---------- loading screen ---------- */
+#splash{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:var(--bg);
+  transition:opacity .5s var(--ease),visibility .5s}
+#splash.gone{opacity:0;visibility:hidden}
+#splash .in{text-align:center;animation:rise .7s var(--ease)}
+#splash .mark{width:88px;height:88px;margin:0 auto 24px;border-radius:28px;
+  background:linear-gradient(150deg,#241C3F,#12121B);border:1px solid rgba(233,196,106,.3);
+  display:grid;place-items:center;box-shadow:0 26px 56px -22px rgba(233,196,106,.55);
+  animation:pulse 2.6s ease-in-out infinite}
+#splash .mark svg{width:46px;height:46px;color:var(--gold)}
+#splash .nm{font-size:12px;font-weight:800;letter-spacing:.42em;text-transform:uppercase;color:var(--ink2)}
+#splash .tl{font-family:"Instrument Serif",Georgia,serif;font-size:26px;margin-top:8px;color:var(--ink)}
+#splash .sub{font-size:12px;color:var(--ink3);margin-top:6px;letter-spacing:.02em}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.rise{animation:rise .42s var(--ease) both}
+.rise-2{animation-delay:.06s}.rise-3{animation-delay:.12s}.rise-4{animation-delay:.18s}
+
+/* ---------- desktop ---------- */
+@media (min-width:1024px){
+  :root{--bar:0px}
+  .app{display:grid;grid-template-columns:264px 1fr;gap:26px;padding:0 26px}
+  .side{display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh;height:100dvh;padding:26px 0 20px}
+  .side .brand{display:flex;align-items:center;gap:12px;padding:0 12px 22px}
+  .side .brand .brandmark{width:46px;height:46px;border-radius:var(--r)}
+  .side .brand .brandmark svg{width:26px;height:26px}
+  .side .brand b{display:block;font-size:14px;font-weight:800;letter-spacing:-.02em}
+  .side .brand span{display:block;font-size:11px;color:var(--ink3);letter-spacing:.04em}
+  .side nav{display:grid;gap:4px}
+  .side nav button{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;
+    color:var(--ink2);font-size:14.5px;font-weight:600;text-align:left;transition:.18s var(--ease)}
+  .side nav button svg{width:20px;height:20px}
+  .side nav button:hover{background:var(--card);color:var(--ink)}
+  .side nav button[aria-current="page"]{background:rgba(155,123,255,.14);color:var(--ink);
+    box-shadow:inset 0 0 0 1px rgba(155,123,255,.28)}
+  .side nav button[aria-current="page"] svg{color:var(--violet)}
+  .side .foot{margin-top:auto;padding:0 12px;font-size:11.5px;color:var(--ink3);line-height:1.5}
+  .tabbar{display:none}
+  main{padding:0 0 60px}
+  .topbar{padding-top:26px;background:none;position:static}
+  .grid2{display:grid;grid-template-columns:1.08fr .92fr;gap:var(--s6);align-items:start}
+  .grid2>.sec:first-child{margin-top:0}
+  .sheet.full{top:50%;height:auto;max-height:86dvh;border-radius:26px;padding-top:0}
+  .sheet.full .shead{border-bottom:1px solid var(--line)}
+  .sheet{left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-46%) scale(.97);
+    width:min(560px,92vw);max-height:86vh;max-height:86dvh;border-radius:26px;border:1px solid var(--line2);opacity:0}
+  .sheet.show{transform:translate(-50%,-50%) scale(1);opacity:1}
+  .sheet.wide{width:min(760px,94vw)}
+  .toasts{bottom:26px}
+  .hero{padding:40px 34px 32px}
+  .hero .name{font-size:56px}
+}
+@media (min-width:1024px){ .only-mobile{display:none!important} }
+@media (max-width:1023px){ .only-desk{display:none!important} }
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero .blob{animation:none}
+}
+@media print{
+  body>*{display:none!important}
+  #printArea{display:block!important}
+  #printArea img{width:100%;page-break-after:always}
+}
+#printArea{display:none}
+</style>
+</head>
+
+<body>
+
+<div id="splash" aria-hidden="true">
+  <div class="in">
+    <div class="mark" id="splashMark"></div>
+    <div class="nm">Kidss Talk</div>
+    <div class="tl">Birthdays</div>
+    <div class="sub">Celebrate People. Celebrate Moments.</div>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="side">
+    <div class="brand">
+      <div class="brandmark" id="sideMark"></div>
+      <div><b>Kidss Talk</b><span>Birthdays</span></div>
+    </div>
+    <nav id="sideNav" aria-label="Sections"></nav>
+    <div class="foot">
+      <button class="iconbtn" id="btnTheme" aria-label="Switch theme" style="margin-bottom:12px"></button>
+      <div id="sideFoot"></div>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="brandmark only-mobile" id="topMark"></div>
+      <div class="brandtxt only-mobile">
+        <b>Kidss Talk</b>
+        <span>Birthday Management</span>
+      </div>
+      <div class="greet only-desk" style="flex:1;min-width:0">
+        <b id="greetLine">Good morning, HR</b>
+        <span id="greetSub" class="tiny muted"></span>
+      </div>
+      <button class="iconbtn" id="btnInstall" hidden aria-label="Install app"></button>
+      <button class="iconbtn" id="btnSettings" aria-label="Settings"></button>
+    </header>
+
+    <main>
+      <section id="page-home" class="page"></section>
+      <section id="page-week" class="page" hidden></section>
+      <section id="page-people" class="page" hidden></section>
+      <section id="page-cal" class="page" hidden></section>
+      <section id="page-more" class="page" hidden></section>
+    </main>
+  </div>
+</div>
+
+<nav class="tabbar" id="tabbar" aria-label="Main"></nav>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <div class="grab"></div>
+  <div class="shead">
+    <h2 id="sheetTitle">Title</h2>
+    <button class="iconbtn" id="sheetClose" aria-label="Close"></button>
+  </div>
+  <div class="sbody" id="sheetBody"></div>
+  <div class="sfoot" id="sheetFoot" hidden></div>
+</div>
+
+<div id="printArea"></div>
+<input type="file" id="filePick" hidden accept=".xlsx,.xls,.csv,.json">
+
+<script>
+/* ==========================================================================
+   KIDSS TALK BIRTHDAYS
+   Single-file PWA. Sections:
+     1  helpers + icons          5  views
+     2  data store               6  sheets (profile, forms, messages)
+     3  birthday engine          7  report card renderer + exports
+     4  chrome (nav, toast)      8  data tools + boot
+   ========================================================================== */
+"use strict";
+
+/* ---------------- 1. HELPERS ---------------- */
+const $  = (s,r)=> (r||document).querySelector(s);
+const $$ = (s,r)=> Array.from((r||document).querySelectorAll(s));
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const on = (el,ev,fn,o)=> el && el.addEventListener(ev,fn,o);
+const reduceMotion = ()=> window.matchMedia &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const P = {
+  home:'M3 10.6 12 3.2l9 7.4V20a1 1 0 0 1-1 1h-5.2v-6.2H9.2V21H4a1 1 0 0 1-1-1z',
+  cake:'M4.5 21h15v-6a2 2 0 0 0-2-2h-11a2 2 0 0 0-2 2z|M2.5 16.4c1.4 0 1.4 1.3 2.8 1.3s1.4-1.3 2.8-1.3 1.4 1.3 2.8 1.3 1.4-1.3 2.8-1.3 1.4 1.3 2.8 1.3 1.4-1.3 2.8-1.3|M12 13V9.4M8 13v-2.6M16 13v-2.6|M12 6.6c.9-.6 1-1.4 0-2.6-1 1.2-.9 2 0 2.6z',
+  users:'c:9,8,3.4|M2.5 20.2c0-3.4 2.9-5.2 6.5-5.2s6.5 1.8 6.5 5.2|M16.6 4.9a3.4 3.4 0 0 1 0 6.3|M18 14.8c2.2.5 3.7 1.9 3.7 4.4',
+  cal:'M4 6.5h16v14H4z|M4 10.5h16|M8.5 3.5V7M15.5 3.5V7',
+  more:'M4.5 4.5h6v6h-6zM13.5 4.5h6v6h-6zM4.5 13.5h6v6h-6zM13.5 13.5h6v6h-6z',
+  search:'c:11,11,6.6|m16 16 4.5 4.5',
+  plus:'M12 5v14M5 12h14',
+  pencil:'m15.5 4.5 4 4L8 20H4v-4z|m13 7 4 4',
+  trash:'M4.5 7h15|M9.5 7V4.5h5V7|M6.5 7l.9 13.2a1 1 0 0 0 1 .8h7.2a1 1 0 0 0 1-.8L17.5 7',
+  x:'m6 6 12 12M18 6 6 18',
+  check:'m5 12.8 4.4 4.4L19 6.6',
+  copy:'M9 9h11v11H9z|M15 9V5H4v11h4',
+  share:'M12 16.5V4|m7.5 8.5 4.5-4.5 4.5 4.5|M5 14.5V19a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-4.5',
+  down:'M12 4v12.5|m7.5 12 4.5 4.5 4.5-4.5|M5 20.5h14',
+  up:'M12 20V7.5|m7.5 12 4.5-4.5 4.5 4.5|M5 3.5h14',
+  sliders:'M4 7h8M16.5 7H20M4 12h3.5M12 12h8M4 17h8M16.5 17H20|c:14,7,2|c:9.5,12,2|c:14,17,2',
+  bell:'M6.2 9.6a5.8 5.8 0 0 1 11.6 0c0 4.8 2 5.9 2 5.9H4.2s2-1.1 2-5.9z|M10 19.2a2.1 2.1 0 0 0 4 0',
+  file:'M6.5 3h6.5l5 5v13h-11.5z|M13 3v5h5|M9.5 13h5M9.5 16.5h5',
+  wa:'M20.6 11.6c0 4.6-3.9 8.3-8.7 8.3-1.3 0-2.6-.3-3.7-.8L3.4 20.5l1.5-4.5a8 8 0 0 1-1.3-4.4C3.6 7 7.5 3.3 12.3 3.3s8.3 3.7 8.3 8.3z|M9.2 8.7c0 4 2.2 6.2 6 6.2.5 0 1-.6 1-1.2 0-.4-1.2-1-1.6-1s-.6.8-1 .8c-1 0-2-1-2-2 0-.4.8-.6.8-1 0-.4-.6-1.6-1-1.6-.6 0-2.2.5-2.2.8z',
+  print:'M7 8.5V3.5h10v5|M7 18H5.5A2.5 2.5 0 0 1 3 15.5v-3.9A2.5 2.5 0 0 1 5.5 9h13a2.5 2.5 0 0 1 2.5 2.6v3.9a2.5 2.5 0 0 1-2.5 2.5H17|M7 14.5h10V21H7z',
+  left:'m14.5 5.5-6.5 6.5 6.5 6.5',
+  right:'m9.5 5.5 6.5 6.5-6.5 6.5',
+  back:'M20 12H4.5|m10 6-6 6 6 6',
+  chev:'m6.5 9.5 5.5 5.5 5.5-5.5',
+  sun:'c:12,12,4.2|M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4 7 7M17 17l1.6 1.6M18.6 5.4 17 7M7 17l-1.6 1.6',
+  moon:'M20.4 14.4A8.4 8.4 0 0 1 9.6 3.6a8.6 8.6 0 1 0 10.8 10.8z',
+  spark:'m12 3.2 1.9 4.9 4.9 1.9-4.9 1.9L12 16.8l-1.9-4.9-4.9-1.9 4.9-1.9z|m18.5 15.5.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z',
+  gift:'M4 11.5h16V21H4z|M3 7.5h18v4H3z|M12 7.5V21|M12 7.5c-.6-1.9-1.7-3-3.2-3a2 2 0 0 0 0 4z|M12 7.5c.6-1.9 1.7-3 3.2-3a2 2 0 0 1 0 4z',
+  user:'c:12,8,4|M4.5 20.4c0-4 3.4-6.2 7.5-6.2s7.5 2.2 7.5 6.2',
+  shop:'M4 20.5V9.5h16v11z|M3 9.5 5 4h14l2 5.5z|M9.5 20.5V15h5v5.5',
+  bag:'M3.5 8.5h17V20h-17z|M8.5 8.5V5.5h7v3',
+  info:'c:12,12,8.6|M12 11v5.4M12 7.9v.1',
+  alert:'M12 4.2 21 19.4H3z|M12 10v4M12 17v.1',
+  refresh:'M20.4 11.6A8.4 8.4 0 1 0 18 17.6|M20.6 5.4v6h-6',
+  db:'M4.5 6.4c0-1.6 3.4-2.9 7.5-2.9s7.5 1.3 7.5 2.9-3.4 2.9-7.5 2.9-7.5-1.3-7.5-2.9z|M4.5 6.4v11.2c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9V6.4|M4.5 12c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9',
+  filter:'M4 5.5h16l-6.2 7.2V19l-3.6 1.8v-8.1z',
+  clock:'c:12,12,8.6|M12 7.2V12l3.2 2',
+  image:'M4 5h16v14H4z|c:9,10,1.6|m5 18 5-5 3.5 3.5 3-2.5 4.5 4',
+  balloon:'M12 15.2c3.1 0 5.2-2.6 5.2-6.3S15.1 2.6 12 2.6 6.8 5.2 6.8 8.9s2.1 6.3 5.2 6.3z|M12 15.2v1.9|M10.4 21.4c0-1.6 3.2-1.6 3.2-3.3',
+  heart:'M12 20.4S3.6 15.5 3.6 9.9A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 8.4 2.3c0 5.6-8.4 10.5-8.4 10.5z',
+  eye:'M2.5 12S6 6.2 12 6.2 21.5 12 21.5 12 18 17.8 12 17.8 2.5 12 2.5 12z|c:12,12,2.8',
+  sort:'M7 4.5v15M7 19.5 4 16.5M7 19.5l3-3|M17 19.5v-15M17 4.5 14 7.5M17 4.5l3 3',
+  more2:'c:12,5,1.4|c:12,12,1.4|c:12,19,1.4',
+  phone:'M6.5 3.5h3l1.5 4-2 1.5c.8 2 2 3.2 4 4l1.5-2 4 1.5v3c0 .9-.7 1.6-1.6 1.5C10.4 16.4 7.6 13.6 5 8.1 4.9 7.2 5.6 6.5 6.5 6.5z|M6.5 3.5v3',
+  msg:'M20.5 11.5c0 4.4-3.8 8-8.5 8-1.3 0-2.5-.3-3.6-.8L3.5 20l1.4-4.4A7.8 7.8 0 0 1 3.5 11.5c0-4.4 3.8-8 8.5-8s8.5 3.6 8.5 8z',
+  edit3:'M4 20h4L19 9l-4-4L4 16z|M14.5 5.5 18.5 9.5',
+  history:'c:12,12,8.6|M12 7.4V12l3.4 2',
+  star:'M12 2.6 Q13 9 20.5 10 Q13 11 12 17.4 Q11 11 3.5 10 Q11 9 12 2.6z'
+};
+/* Brand mark — filled, so it reads as a logo rather than a UI icon */
+function logo(){
+  return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">'+
+    '<path d="M11 2.2 Q12.1 9.4 20.3 10.5 Q12.1 11.6 11 18.8 Q9.9 11.6 1.7 10.5 Q9.9 9.4 11 2.2z"/>'+
+    '<path d="M18.4 13.4 Q18.8 16.3 21.6 16.7 Q18.8 17.1 18.4 20 Q18 17.1 15.2 16.7 Q18 16.3 18.4 13.4z" opacity=".85"/>'+
+    '</svg>';
+}
+function ic(n,extra){
+  const spec=P[n]||"";
+  const body=spec.split("|").map(d=> d.slice(0,2)==="c:"
+    ? '<circle cx="'+d.slice(2).split(",")[0]+'" cy="'+d.slice(2).split(",")[1]+'" r="'+d.slice(2).split(",")[2]+'"/>'
+    : '<path d="'+d+'"/>').join("");
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '+
+         'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"'+(extra||"")+'>'+body+'</svg>';
+}
+
+
+/* ---------------- 2. DATA ---------------- */
+const KEY = "kt.birthday.v1";          /* same key as v1 — existing data is kept */
+
+const SEED_PEOPLE = [{"id":"E001","name":"Ameer Khan","branch":"Office","dept":"Godown","dob":""},
+{"id":"E002","name":"Andrews William X","branch":"Office","dept":"Accounts","dob":"1997-05-08"},
+{"id":"E003","name":"Aravindh","branch":"Office","dept":"Godown","dob":""},
+{"id":"E004","name":"Jawahar P","branch":"Office","dept":"Marketing","dob":"1995-11-26"},
+{"id":"E005","name":"Karpagam","branch":"Office","dept":"Accounts","dob":"1990-05-23"},
+{"id":"E006","name":"Kerthikeyan","branch":"Office","dept":"Godown","dob":""},
+{"id":"E007","name":"Lavanya","branch":"Office","dept":"Godown","dob":""},
+{"id":"E008","name":"Manikandan","branch":"Office","dept":"Baby","dob":"1991-12-04"},
+{"id":"E009","name":"Meenakshi Saradha","branch":"Office","dept":"Marketing","dob":"1998-07-27"},
+{"id":"E010","name":"Monika Sri M","branch":"Office","dept":"HR","dob":"2004-05-28"},
+{"id":"E011","name":"Murugan Gowri Shankar B","branch":"Office","dept":"Marketing","dob":"1993-12-17"},
+{"id":"E012","name":"Muthupandi","branch":"Office","dept":"Godown","dob":""},
+{"id":"E013","name":"Pandimeena S","branch":"Office","dept":"Baby","dob":"1983-11-16"},
+{"id":"E014","name":"Pavithra D","branch":"Office","dept":"Marketing","dob":"2003-08-31"},
+{"id":"E015","name":"Pavithra K L","branch":"Office","dept":"Garments","dob":"2002-01-18"},
+{"id":"E016","name":"Poongodi G","branch":"Office","dept":"Godown","dob":""},
+{"id":"E017","name":"Pothumponnu R","branch":"Office","dept":"Godown","dob":""},
+{"id":"E018","name":"Pradeep C J","branch":"Office","dept":"Garments","dob":"1985-10-11"},
+{"id":"E019","name":"Priya Dharshini M","branch":"Office","dept":"Garments","dob":"1987-11-26"},
+{"id":"E020","name":"Rajapandiyan","branch":"Office","dept":"Toys","dob":"1986-12-07"},
+{"id":"E021","name":"Selvapriya S","branch":"Office","dept":"Garments","dob":"2002-05-28"},
+{"id":"E022","name":"Shahul Hameed K","branch":"Office","dept":"Admin","dob":"1988-01-20"},
+{"id":"E023","name":"Shathika","branch":"Office","dept":"Toys","dob":"2001-09-19"},
+{"id":"E024","name":"Soma Sundaram B","branch":"Office","dept":"Garments","dob":"1984-07-11"},
+{"id":"E025","name":"Venkatesh S","branch":"Office","dept":"Accounts","dob":"1987-10-21"},
+{"id":"E026","name":"Vignesh S","branch":"Office","dept":"Baby","dob":"1992-05-15"},
+{"id":"E027","name":"Vikash Kumar","branch":"Office","dept":"Godown","dob":""},
+{"id":"E028","name":"Alangan","branch":"Main Store","dept":"Baby","dob":"2004-04-22"},
+{"id":"E029","name":"Anbarasi","branch":"Main Store","dept":"Garments","dob":"1974-05-30"},
+{"id":"E030","name":"Anu Priya","branch":"Main Store","dept":"Baby","dob":"1996-06-25"},
+{"id":"E031","name":"Chinna Raja","branch":"Main Store","dept":"Garments","dob":"1993-07-10"},
+{"id":"E032","name":"Gayathri","branch":"Main Store","dept":"Toys","dob":"2004-11-18"},
+{"id":"E033","name":"Jothi","branch":"Main Store","dept":"Baby","dob":"1984-02-21"},
+{"id":"E034","name":"Kamatchi","branch":"Main Store","dept":"CRE","dob":"2005-10-28"},
+{"id":"E035","name":"Karthick","branch":"Main Store","dept":"Toys","dob":"1986-12-08"},
+{"id":"E036","name":"Mahalakshmi","branch":"Main Store","dept":"Garments","dob":"2006-07-27"},
+{"id":"E037","name":"Malar Priya","branch":"Main Store","dept":"Accessories","dob":"1989-02-03"},
+{"id":"E038","name":"Manjula Devi","branch":"Main Store","dept":"Baby","dob":"1978-05-05"},
+{"id":"E039","name":"Meenakshi","branch":"Main Store","dept":"Baby","dob":"1974-05-12"},
+{"id":"E040","name":"Muthuprakash","branch":"Main Store","dept":"Operations","dob":"1994-12-26"},
+{"id":"E041","name":"Nandhika","branch":"Main Store","dept":"Toys","dob":"2004-03-11"},
+{"id":"E042","name":"Niranjana Devi","branch":"Main Store","dept":"Garments","dob":"2005-08-13"},
+{"id":"E043","name":"Pavithra","branch":"Main Store","dept":"Garments","dob":"1984-05-20"},
+{"id":"E044","name":"Rajeshwaran","branch":"Main Store","dept":"Garments","dob":"1991-04-22"},
+{"id":"E045","name":"Sakthivel Murugan","branch":"Main Store","dept":"Toys","dob":"2004-08-16"},
+{"id":"E046","name":"Saranya","branch":"Main Store","dept":"Garments","dob":""},
+{"id":"E047","name":"Saritha","branch":"Main Store","dept":"Toys","dob":"2007-05-20"},
+{"id":"E048","name":"Shanmuga Raja","branch":"Main Store","dept":"Toys","dob":""},
+{"id":"E049","name":"Sumathi Priya","branch":"Main Store","dept":"Baby","dob":"1975-05-05"},
+{"id":"E050","name":"Suresh Kumar","branch":"Main Store","dept":"Operations","dob":"1971-09-26"},
+{"id":"E051","name":"Surya Pandian","branch":"Main Store","dept":"Baby","dob":"1999-03-20"},
+{"id":"E052","name":"Surya Prakash","branch":"Main Store","dept":"Toys","dob":"2000-02-11"},
+{"id":"E053","name":"Tamil Selvan","branch":"Main Store","dept":"Operations","dob":"1980-03-24"},
+{"id":"E054","name":"Thanga Poongodi","branch":"Main Store","dept":"Baby","dob":"2001-07-31"},
+{"id":"E055","name":"Alagumani","branch":"Mall","dept":"Operations","dob":"1983-09-09"},
+{"id":"E056","name":"Arasu","branch":"Mall","dept":"Baby & Garments","dob":"2003-11-20"},
+{"id":"E057","name":"Sridharan","branch":"Mall","dept":"Toys","dob":"2006-01-29"},
+{"id":"E058","name":"Amutha","branch":"Bypass","dept":"Operations","dob":"1982-04-15"},
+{"id":"E059","name":"Ananda Guru","branch":"Bypass","dept":"Toys","dob":"1984-02-04"},
+{"id":"E060","name":"Dhino Yokesh Waran","branch":"Bypass","dept":"Toys","dob":"2002-08-24"},
+{"id":"E061","name":"Hari Shankar","branch":"Bypass","dept":"Toys","dob":"1994-08-10"},
+{"id":"E062","name":"Hemavathi","branch":"Bypass","dept":"Toys","dob":"1991-08-19"},
+{"id":"E063","name":"Kaleeswari","branch":"Bypass","dept":"Baby","dob":"2006-12-14"},
+{"id":"E064","name":"Manikandan","branch":"Bypass","dept":"Toys","dob":"1990-11-10"},
+{"id":"E065","name":"Manoj Pandiyan.R","branch":"Bypass","dept":"Toys","dob":"1997-10-26"},
+{"id":"E066","name":"Maya","branch":"Bypass","dept":"Toys","dob":""},
+{"id":"E067","name":"Meenambikai T","branch":"Bypass","dept":"Baby","dob":"1984-10-19"},
+{"id":"E068","name":"Murugalakshmi G","branch":"Bypass","dept":"Baby","dob":"1980-04-05"},
+{"id":"E069","name":"Muthukrishnan S","branch":"Bypass","dept":"Baby","dob":"1984-08-22"},
+{"id":"E070","name":"Naga Lakshmi S","branch":"Bypass","dept":"Garments","dob":"1973-09-21"},
+{"id":"E071","name":"Priyanka M","branch":"Bypass","dept":"Baby","dob":"1997-12-21"},
+{"id":"E072","name":"Ramaraj S","branch":"Bypass","dept":"Operations","dob":"1979-09-08"},
+{"id":"E073","name":"Rekha R","branch":"Bypass","dept":"Toys","dob":"2003-05-14"},
+{"id":"E074","name":"Sakthi Priya","branch":"Bypass","dept":"Baby","dob":"2003-12-01"},
+{"id":"E075","name":"Santhiya","branch":"Bypass","dept":"Garments","dob":"2000-10-11"},
+{"id":"E076","name":"Saravana Kumar","branch":"Bypass","dept":"Baby","dob":"1990-08-18"},
+{"id":"E077","name":"Uma Devi P","branch":"Bypass","dept":"Garments","dob":"1991-10-25"},
+{"id":"E078","name":"Vishnu Priya B","branch":"Bypass","dept":"Baby","dob":"2001-09-09"},
+{"id":"E079","name":"Boobalan. R","branch":"CBE","dept":"Cashier","dob":"2003-04-22"},
+{"id":"E080","name":"Guna Sekaran.J","branch":"CBE","dept":"Footwear","dob":"1988-05-21"},
+{"id":"E081","name":"Mathan","branch":"CBE","dept":"","dob":""},
+{"id":"E082","name":"Praveen","branch":"CBE","dept":"Toys","dob":"2004-01-13"},
+{"id":"E083","name":"Puthis Kumar M","branch":"CBE","dept":"Garments","dob":"2003-03-24"},
+{"id":"E084","name":"Rama Priya","branch":"CBE","dept":"Garments","dob":"2004-11-06"},
+{"id":"E085","name":"Srinika","branch":"CBE","dept":"Garments","dob":"2004-06-07"},
+{"id":"E086","name":"Srivarthini","branch":"CBE","dept":"New Born","dob":"2002-11-04"},
+{"id":"E087","name":"Swetha","branch":"CBE","dept":"New Born","dob":"2001-04-10"}];
+
+function ordinal(n){
+  const s=["th","st","nd","rd"], v=n%100;
+  return n+(s[(v-20)%10]||s[v]||s[0]);
+}
+
+const DEFAULT_MD =
+"Good morning Sir 😊\n\n🎂 Sharing this week's Employee Birthday Celebrations.\n\n" +
+"{count} of our team member{plural} celebrating this week.\n\n" +
+"✨ Let's make their special days even more memorable!\n\nRegards,\nHR";
+
+const DEFAULT_EMP = [
+"🎉 A Special Day to Celebrate! 🎂\n\nWishing {name} a very Happy {ageth}Birthday! 🥳✨\n\n" +
+"May your day be full of laughter, cake and lovely surprises! 💐\n\n🎈 Team, let's shower {first} with wishes!",
+"🎂 It's {first}'s birthday today! 🎈\n\nWishing you a wonderful year ahead, {first} — full of joy, good health and happy moments. 🌟\n\n" +
+"Do drop in your wishes for {first} from {branch}! 💐",
+"✨ Happy {ageth}Birthday, {name}! ✨\n\nMay this year bring you everything you have been hoping for. 🎁🎂\n\n" +
+"🎉 Team, let's make {first}'s day extra special with your wishes!",
+"🎈 Cake time! 🎂\n\nToday we celebrate {name} from {branch}. Wishing you a very Happy Birthday, {first}! 🥳\n\n" +
+"🌟 Let's fill the group with birthday wishes!",
+"🎁 A very Happy Birthday to {name}! 🎂\n\nWishing you a day as bright and cheerful as you are. ✨\n\n" +
+"🎉 Team, join in and wish {first} a fantastic year ahead!",
+"💐 Happy Birthday, {first}! 🎂\n\nMay your year ahead be filled with happiness, good health and lots of smiles. 🥳\n\n" +
+"🎈 Everyone, let's wish {name} from {branch}!"
+].join("\n---\n");
+
+const DEFAULTS = {
+  company:"KIDSS TALK", tagline:"RETAIL PRIVATE LIMITED",
+  theme:"colour",            /* report palette   */
+  ui:"dark",                 /* app appearance   */
+  leap:"feb28",              /* 29 Feb rule      */
+  showAge:true,             /* age on cards and profiles */
+  ageInMsg:false,           /* age inside the birthday wish  */
+  installHidden:false,      /* home-screen install banner dismissed */
+  mdPhones:false,           /* mobile numbers in the MD's weekly message */
+  logo:"", branches:[], depts:[],
+  mdMsg:DEFAULT_MD, empMsg:DEFAULT_EMP
+};
+
+const Store = {
+  ok(){ try{ localStorage.setItem("__t","1"); localStorage.removeItem("__t"); return true; }catch(e){ return false; } },
+  load(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+  save(k,v){ try{ localStorage.setItem(k,v); return true; }catch(e){ return false; } }
+};
+
+function uid(){ return "E"+Date.now().toString(36).slice(-5)+Math.random().toString(36).slice(2,6); }
+
+/* ---- phone numbers ----
+   Stored in E.164 ("+919876543210") so WhatsApp links always work; shown
+   grouped for reading. Indian numbers assumed when no country code is given. */
+function normPhone(v){
+  let s = String(v==null?"":v).trim();
+  if(!s) return "";
+  const plus = s[0]==="+";
+  s = s.replace(/[^0-9]/g,"");
+  if(!s) return "";
+  if(plus) return "+"+s;
+  if(s.length===10) return "+91"+s;
+  if(s.length===11 && s[0]==="0") return "+91"+s.slice(1);
+  if(s.length===12 && s.slice(0,2)==="91") return "+"+s;
+  if(s.length===13 && s.slice(0,3)==="910") return "+91"+s.slice(3);
+  return "+"+s;
+}
+function validPhone(v){
+  const p = normPhone(v);
+  if(!p) return false;
+  if(p.slice(0,3)==="+91") return /^\+91[6-9]\d{9}$/.test(p);
+  return /^\+\d{8,15}$/.test(p);                    /* other countries, kept flexible */
+}
+function phoneDisplay(v){
+  const p = normPhone(v);
+  if(!p) return "";
+  if(p.slice(0,3)==="+91" && p.length===13) return "+91 "+p.slice(3,8)+" "+p.slice(8);
+  return p;
+}
+const waNumber = v => normPhone(v).replace(/^\+/,"");
+
+function normalise(p){
+  return {
+    id: p.id || uid(),
+    name: String(p.name||"").replace(/\s+/g," ").trim(),
+    phone: normPhone(p.phone),
+    branch: String(p.branch||"").trim(),
+    dept: String(p.dept||"").trim(),
+    dob: String(p.dob||"").trim(),
+    log: Array.isArray(p.log)? p.log.slice(-20) : [],
+    demo: !!p.demo
+  };
+}
+
+const DB = {
+  data:{ v:1, employees:[], settings:Object.assign({},DEFAULTS) },
+  get emp(){ return this.data.employees; },
+  get cfg(){ return this.data.settings; },
+  saved:true, timer:null,
+
+  load(){
+    const raw = Store.load(KEY);
+    if(raw){
+      try{
+        const d = JSON.parse(raw);
+        if(d && Array.isArray(d.employees)){
+          this.data = { v:1, employees:d.employees.map(normalise),
+                        settings:Object.assign({},DEFAULTS,d.settings||{}) };
+          this.ensureLists();
+          return "restored";
+        }
+      }catch(e){}
+    }
+    this.data = { v:1, employees:SEED_PEOPLE.map(normalise), settings:Object.assign({},DEFAULTS) };
+    this.ensureLists(); this.saveNow();
+    return "seeded";
+  },
+  ensureLists(){
+    const c=this.cfg, from = k => this.emp.map(p=>p[k]).filter(Boolean);
+    const uniq = a => Array.from(new Set(a)).sort((x,y)=>x.localeCompare(y));
+    c.branches = uniq((c.branches||[]).concat(from("branch")));
+    c.depts    = uniq((c.depts||[]).concat(from("dept")));
+  },
+  saveNow(){ this.saved = Store.save(KEY, JSON.stringify(this.data)); return this.saved; },
+  save(){ clearTimeout(this.timer); this.timer = setTimeout(()=>this.saveNow(), 120); },
+
+  add(p){ const e=normalise(Object.assign({id:uid()},p)); this.emp.push(e); this.ensureLists(); this.save(); return e; },
+  logAction(id,what){
+    const e=this.emp.find(x=>x.id===id); if(!e) return;
+    e.log = (e.log||[]).concat([{d:new Date().toISOString(), k:what}]).slice(-20);
+    this.save();
+  },
+  update(id,p){ const e=this.emp.find(x=>x.id===id); if(!e) return null;
+                Object.assign(e, normalise(Object.assign({},e,p,{id:e.id}))); this.ensureLists(); this.save(); return e; },
+  remove(id){ this.data.employees = this.emp.filter(x=>x.id!==id); this.save(); },
+  replaceAll(list){ this.data.employees = list.map(normalise); this.ensureLists(); this.save(); },
+  addMany(list){ list.forEach(p=>this.emp.push(normalise(Object.assign({id:uid()},p)))); this.ensureLists(); this.save(); },
+  patch(o){ Object.assign(this.cfg,o); this.save(); }
+};
+
+/* ---------------- 3. BIRTHDAY ENGINE ---------------- */
+const DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const DOW3 = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const MONS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const MON3 = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+const pad2 = n => String(n).padStart(2,"0");
+const ymd = d => d.getFullYear()+"-"+pad2(d.getMonth()+1)+"-"+pad2(d.getDate());
+function parseYmd(s){ const p=String(s).split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
+function today(){ const n = window.__NOW ? new Date(window.__NOW) : new Date();
+                  return new Date(n.getFullYear(),n.getMonth(),n.getDate()); }
+function addDays(d,n){ const x=new Date(d.getFullYear(),d.getMonth(),d.getDate()); x.setDate(x.getDate()+n); return x; }
+function mondayOf(d){ const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());
+                      x.setDate(x.getDate()-((x.getDay()+6)%7)); return x; }
+const isLeap = y => y%4===0 && (y%100!==0 || y%400===0);
+const sameDay = (a,b) => a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate();
+const dayLong = d => d.getDate()+" "+MONS[d.getMonth()];
+const dayShort = d => d.getDate()+" "+MON3[d.getMonth()];
+const firstName = n => String(n).trim().split(/\s+/)[0] || String(n);
+function initials(n){
+  const w = String(n).trim().split(/\s+/);
+  return ((w[0]||"")[0]||"?").toUpperCase() + ((w[1]||"")[0]||"").toUpperCase();
+}
+function validDob(s){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(s||"")) return false;
+  const d = parseYmd(s);
+  return !isNaN(d) && d.getFullYear()===+s.slice(0,4) && d.getMonth()===+s.slice(5,7)-1 && d.getDate()===+s.slice(8,10);
+}
+const hasDob = p => validDob(p.dob);
+
+/* Which calendar day does this person's birthday land on, in year `y`? */
+function celebrationIn(p,y){
+  if(!hasDob(p)) return null;
+  const m = +p.dob.slice(5,7)-1, d = +p.dob.slice(8,10);
+  if(m===1 && d===29 && !isLeap(y)){
+    const rule = DB.cfg.leap;
+    if(rule==="mar01") return new Date(y,2,1);
+    if(rule==="exact") return null;
+    return new Date(y,1,28);
+  }
+  return new Date(y,m,d);
+}
+function occursOn(p,date){
+  const c = celebrationIn(p, date.getFullYear());
+  return !!c && sameDay(c,date);
+}
+/* Next celebration on or after `from` */
+function nextOn(p,from){
+  const base = from || today();
+  for(let i=0;i<5;i++){
+    const c = celebrationIn(p, base.getFullYear()+i);
+    if(c && c.getTime() >= base.getTime()) return c;
+  }
+  return null;
+}
+function daysTo(p,from){
+  const base = from||today(), n = nextOn(p,base);
+  return n ? Math.round((n-base)/86400000) : null;
+}
+/* Age completed as of today — recalculated every time, never stored. */
+function ageNow(p,on){
+  if(!hasDob(p)) return null;
+  const b = parseYmd(p.dob), d = on || today();
+  const y = +p.dob.slice(0,4);
+  if(y < 1930) return null;
+  let a = d.getFullYear() - b.getFullYear();
+  /* follow the celebrated day, so a 29 Feb birthday ages on the day the app
+     actually celebrates it rather than a day or two later */
+  const c = celebrationIn(p, d.getFullYear());
+  const had = c ? d.getTime() >= c.getTime()
+                : (d.getMonth() > b.getMonth() ||
+                  (d.getMonth() === b.getMonth() && d.getDate() >= b.getDate()));
+  if(!had) a -= 1;
+  return (a>=0 && a<100) ? a : null;
+}
+function turningAge(p,onDate){
+  if(!hasDob(p)) return null;
+  const y = +p.dob.slice(0,4);
+  if(y < 1930) return null;
+  const age = (onDate||nextOn(p)||today()).getFullYear() - y;
+  return (age>0 && age<100) ? age : null;
+}
+function peopleOn(date,list){
+  return (list||DB.emp).filter(p=>occursOn(p,date))
+    .sort((a,b)=>a.name.localeCompare(b.name));
+}
+function weekDays(monday){
+  const out=[];
+  for(let i=0;i<7;i++){ const d=addDays(monday,i); out.push({date:d, people:peopleOn(d)}); }
+  return out;
+}
+function weekPeople(monday){
+  return weekDays(monday).flatMap(d=> d.people.map(p=>({p, date:d.date})));
+}
+function upcoming(n,from){
+  const base = from||today();
+  return DB.emp.filter(hasDob)
+    .map(p=>({p, date:nextOn(p,base), days:daysTo(p,base)}))
+    .filter(x=>x.date)
+    .sort((a,b)=> a.days-b.days || a.p.name.localeCompare(b.p.name))
+    .slice(0, n||10);
+}
+function monthMap(y,m){
+  const map={};
+  DB.emp.forEach(p=>{
+    const c = celebrationIn(p,y);
+    if(c && c.getMonth()===m) (map[c.getDate()] = map[c.getDate()]||[]).push(p);
+  });
+  Object.values(map).forEach(a=>a.sort((x,z)=>x.name.localeCompare(z.name)));
+  return map;
+}
+function weekLabel(monday){
+  const a=monday, b=addDays(monday,6);
+  const am = a.getMonth()===b.getMonth() ? "" : " "+MON3[a.getMonth()];
+  return a.getDate()+am+" – "+b.getDate()+" "+MON3[b.getMonth()]+" "+b.getFullYear();
+}
+/* Stable colour per person, from the name */
+function hueOf(name){
+  let h=0; const s=String(name);
+  for(let i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))%360;
+  return h;
+}
+function avatarStyle(name){
+  const h=hueOf(name);
+  return "background:linear-gradient(135deg,hsl("+h+" 72% 58%),hsl("+((h+42)%360)+" 76% 52%))";
+}
+function avatar(p,cls){
+  return '<div class="av '+(cls||"")+'" style="'+avatarStyle(p.name)+'" aria-hidden="true">'+esc(initials(p.name))+'</div>';
+}
+function subLine(p){
+  return [p.dept,p.branch].filter(Boolean).join(" • ") || "No department recorded";
+}
+function daysWord(n){
+  if(n===0) return "Today";
+  if(n===1) return "Tomorrow";
+  return "In "+n+" days";
+}
+
+
+/* ---------------- 4. CHROME ---------------- */
+const TABS = [
+  {id:"home",   label:"Home",      icon:"home"},
+  {id:"week",   label:"This week", icon:"cake"},
+  {id:"people", label:"People",    icon:"users"},
+  {id:"cal",    label:"Calendar",  icon:"cal"},
+  {id:"more",   label:"More",      icon:"more"}
+];
+const ALIAS = {weekly:"week", dash:"home", calendar:"cal", settings:"more"};
+let page = "home";
+let heroIdx = 0;
+let anchor = null;                    /* Monday of the week on screen */
+let calY = 0, calM = 0, calSel = null;
+let query = "", fBranch = "", sortMode = "next";
+const scrollMem = {};
+
+function toast(msg,kind){
+  const el = document.createElement("div");
+  el.className = "toast "+(kind||"");
+  el.innerHTML = ic(kind==="bad"?"alert":kind==="ok"?"check":"spark")+"<span>"+esc(msg)+"</span>";
+  $("#toasts").appendChild(el);
+  setTimeout(()=>{ el.style.transition="opacity .3s, transform .3s";
+                   el.style.opacity="0"; el.style.transform="translateY(8px)";
+                   setTimeout(()=>el.remove(),320); }, 2400);
+}
+
+let sheetPrevFocus = null;
+function openSheet(o){
+  const s=$("#sheet");
+  $("#sheetTitle").textContent = o.title||"";
+  $("#sheetBody").innerHTML = o.body||"";
+  const f=$("#sheetFoot");
+  f.innerHTML = o.foot||""; f.hidden = !o.foot;
+  s.classList.toggle("wide", !!o.wide);
+  s.classList.toggle("full", !!o.full);          /* full screen on phones */
+  $("#sheetClose").innerHTML = ic(o.full ? "back" : "x");
+  $("#sheetClose").setAttribute("aria-label", o.full ? "Back" : "Close");
+  sheetPrevFocus = document.activeElement;
+  $("#scrim").hidden=false; s.hidden=false;
+  requestAnimationFrame(()=>{ $("#scrim").classList.add("show"); s.classList.add("show"); });
+  document.body.style.overflow="hidden";
+  setTimeout(()=>{ const t=$("#sheetBody").querySelector("input,select,textarea,button") || $("#sheetClose"); t && t.focus({preventScroll:true}); },340);
+  if(o.after) o.after();
+}
+function closeSheet(){
+  const s=$("#sheet");
+  s.classList.remove("show"); $("#scrim").classList.remove("show");
+  document.body.style.overflow="";
+  setTimeout(()=>{ s.hidden=true; $("#scrim").hidden=true; $("#sheetBody").innerHTML=""; },320);
+  sheetPrevFocus && sheetPrevFocus.focus && sheetPrevFocus.focus({preventScroll:true});
+}
+function confirmSheet(o){
+  openSheet({
+    title:o.title,
+    body:'<p class="muted" style="margin:2px 0 8px;line-height:1.6">'+esc(o.text)+'</p>',
+    foot:'<button class="btn btn-quiet" data-act="close">Keep</button>'+
+         '<button class="btn '+(o.danger?"btn-danger":"btn-primary")+'" data-act="confirm-yes">'+esc(o.yes||"Confirm")+'</button>'
+  });
+  confirmSheet.fn = o.onYes;
+}
+
+/* confetti — short, soft, motion-safe */
+const CONF = {c:null, x:null, parts:[], raf:0};
+function confettiBurst(count){
+  if(reduceMotion()) return;
+  const c = CONF.c || (CONF.c = $("#confetti"));
+  if(!c || !c.getContext) return;
+  const dpr = Math.min(window.devicePixelRatio||1, 2);
+  c.width = innerWidth*dpr; c.height = innerHeight*dpr;
+  c.style.width=innerWidth+"px"; c.style.height=innerHeight+"px";
+  const x = CONF.x = c.getContext("2d");
+  x.setTransform(dpr,0,0,dpr,0,0);
+  const cols=["#F5C76B","#FF5C9A","#9B7BFF","#5CC8FF","#FF9E7D","#FFFFFF"];
+  for(let i=0;i<(count||60);i++){
+    CONF.parts.push({
+      x: innerWidth*(.15+Math.random()*.7), y: innerHeight*.22+Math.random()*40,
+      vx:(Math.random()-.5)*3.4, vy:-2-Math.random()*4.2,
+      r:3+Math.random()*4, a:1, rot:Math.random()*6.3, vr:(Math.random()-.5)*.24,
+      col:cols[(Math.random()*cols.length)|0]
+    });
+  }
+  if(!CONF.raf) CONF.raf = requestAnimationFrame(confettiStep);
+}
+function confettiStep(){
+  const x=CONF.x, c=CONF.c;
+  x.clearRect(0,0,c.width,c.height);
+  CONF.parts = CONF.parts.filter(p=>p.a>0.02 && p.y<innerHeight+40);
+  CONF.parts.forEach(p=>{
+    p.vy += 0.12; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.a -= 0.006;
+    x.save(); x.globalAlpha=Math.max(0,p.a); x.translate(p.x,p.y); x.rotate(p.rot);
+    x.fillStyle=p.col; x.fillRect(-p.r,-p.r*.6,p.r*2,p.r*1.2); x.restore();
+  });
+  if(CONF.parts.length) CONF.raf = requestAnimationFrame(confettiStep);
+  else { x.clearRect(0,0,c.width,c.height); CONF.raf=0; }
+}
+
+/* routing */
+function go(p,push){
+  p = ALIAS[p] || p;
+  if(!TABS.some(t=>t.id===p)) p="home";
+  if(page!==p) scrollMem[page]=window.scrollY;
+  page=p;
+  TABS.forEach(t=> $("#page-"+t.id).hidden = (t.id!==p));
+  $$("#tabbar button,#sideNav button").forEach(b=>
+    b.setAttribute("aria-current", b.dataset.go===p ? "page" : "false"));
+  render();
+  if(push!==false && location.hash.slice(1)!==p) location.hash = p;
+  window.scrollTo(0, scrollMem[p]||0);
+}
+function render(){
+  const el = $("#page-"+page);
+  if(page==="home")   el.innerHTML = viewHome();
+  if(page==="week")   el.innerHTML = viewWeek();
+  if(page==="people") el.innerHTML = viewPeople();
+  if(page==="cal")    el.innerHTML = viewCal();
+  if(page==="more")   el.innerHTML = viewMore();
+  if(page==="people"){ paintPeople(); const s=$("#q"); if(s) s.value=query; }
+}
+function refresh(){ render(); }
+
+/* ---------------- 5. VIEWS ---------------- */
+function greeting(){
+  const h = (window.__NOW? new Date(window.__NOW): new Date()).getHours();
+  return h<12 ? "Good morning" : h<17 ? "Good afternoon" : "Good evening";
+}
+function sectionHead(title,linkLabel,act){
+  return '<div class="sec-head"><h2 class="h-sec">'+esc(title)+'</h2>'+
+    (linkLabel?'<button class="link" data-act="'+act+'">'+esc(linkLabel)+'</button>':'')+'</div>';
+}
+
+/* ---- HOME ----
+   Phone layout: greeting → today → this week → upcoming. Nothing else.
+   Each block is a single column in normal flow; no absolute placement. */
+function viewHome(){
+  const t = today();
+  const born = peopleOn(t);
+  const mon = mondayOf(t);
+  const week = weekDays(mon).filter(d=>d.people.length);
+  const next = upcoming(1, addDays(t,1))[0];
+  const soon = upcoming(4, addDays(t,1));
+  const noDob = DB.emp.filter(p=>!hasDob(p)).length;
+
+  let out = installBanner();
+
+  out += '<div class="greeting rise">'+
+      '<b>'+greeting()+', HR 👋</b>'+
+      '<span>Let\'s celebrate our people.</span>'+
+    '</div>';
+
+  out += '<div class="grid2">';
+  out += '<div>';
+  out += born.length ? heroBirthday(born) : heroQuiet(next);
+
+  if(born.length>1){
+    out += '<section class="sec rise">'+
+      sectionHead("Everyone celebrating today")+
+      '<div class="stack">'+ born.map(p=>
+        '<div class="pcard" style="grid-template-columns:auto 1fr">'+
+          avatar(p)+
+          '<div class="who"><span class="nm">'+esc(p.name)+'</span>'+
+          '<span class="sub">'+esc(ageBit(p)+subLine(p))+'</span>'+
+          '<button class="btn btn-gold btn-sm" style="margin-top:var(--s3);width:100%" data-act="wish" data-id="'+p.id+'">'+
+            ic("cake")+'Birthday wish</button></div>'+
+        '</div>').join("") +'</div>'+
+    '</section>';
+  }
+
+  out += '<section class="sec rise rise-2">'+
+    sectionHead("This week", week.length?"Open":"", "go-week")+
+    (week.length
+      ? '<div class="tl">'+week.map(d=>timelineDay(d,t)).join("")+'</div>'
+      : '<div class="card pad tiny muted" style="text-align:center">No birthdays fall in these seven days.</div>')+
+  '</section>';
+  out += '</div><div>';
+
+  if(soon.length){
+    out += '<section class="sec rise rise-3">'+
+      sectionHead("Upcoming","View all","go-people")+
+      '<div class="stack">'+soon.map(u=>
+        '<button class="urow" data-act="profile" data-id="'+u.p.id+'">'+
+          avatar(u.p,"sm")+
+          '<span class="who"><span class="nm">'+esc(u.p.name)+'</span>'+
+          '<span class="sub">'+esc(ageBit(u.p)+subLine(u.p))+'</span></span>'+
+          '<span class="end">'+dayShort(u.date)+'<br><span class="tiny muted" style="font-weight:600">'+
+            daysWord(u.days).toLowerCase()+'</span></span>'+
+        '</button>').join("")+'</div>'+
+    '</section>';
+  }
+
+  if(noDob){
+    out += '<section class="sec"><button class="srow" data-act="go-missing">'+
+      '<span class="ic" style="color:var(--gold)">'+ic("alert")+'</span>'+
+      '<span class="who"><span class="nm">'+noDob+' without a date of birth</span>'+
+      '<span class="sub">They can never appear in a celebration</span></span>'+
+      '<span class="end">'+ic("right")+'</span></button></section>';
+  }
+  out += '</div></div>';
+  return out;
+}
+/* Install is offered on the home screen too, because the Chrome menu is the
+   part people cannot find. Shown until the app is installed or dismissed. */
+function installBanner(){
+  if(isInstalled() || DB.cfg.installHidden) return "";
+  const ready = !!deferredPrompt;
+  return '<section class="installcard rise">'+
+    '<div class="row" style="align-items:flex-start">'+
+      '<span class="ic">'+ic("down")+'</span>'+
+      '<span style="flex:1;min-width:0">'+
+        '<b style="display:block;font-size:15px;letter-spacing:-.02em">Install Kidss Talk Birthdays</b>'+
+        '<span class="tiny muted" style="display:block;margin-top:2px;line-height:1.5">'+
+          (ready? "One tap and it lives on your home screen, no browser bar."
+                : "Put it on your home screen — it then opens like any other app.")+'</span>'+
+      '</span>'+
+    '</div>'+
+    '<div class="btnrow" style="margin-top:var(--s4);grid-auto-flow:column;grid-auto-columns:1fr;grid-template-columns:none">'+
+      '<button class="btn btn-quiet btn-tight" data-act="install-later">Not now</button>'+
+      '<button class="btn btn-primary btn-tight" data-act="'+(ready?"do-install":"sheet-install")+'">'+
+        ic("down")+(ready? "Install" : "How to")+'</button>'+
+    '</div>'+
+  '</section>';
+}
+function ageBit(p){
+  if(!DB.cfg.showAge) return "";
+  const a = ageNow(p);
+  return a==null? "" : "Age "+a+" • ";
+}
+function timelineDay(d,t){
+  const isToday = sameDay(d.date,t);
+  return '<div class="tl-item'+(isToday?" today":"")+'">'+
+    '<div class="tl-when"><span class="dow">'+DOW3[d.date.getDay()].toUpperCase()+'</span>'+
+      '<span class="num">'+d.date.getDate()+'</span></div>'+
+    '<div class="stack">'+ d.people.map(p=>
+      '<button class="tl-card" data-act="profile" data-id="'+p.id+'">'+
+        avatar(p,"sm")+
+        '<span style="flex:1;min-width:0"><span class="nm">'+esc(p.name)+'</span>'+
+        '<span class="sub">'+esc(ageBit(p)+subLine(p))+'</span></span>'+
+      '</button>').join("") +'</div>'+
+  '</div>';
+}
+function heroBirthday(list){
+  if(heroIdx>=list.length) heroIdx=0;
+  const p = list[heroIdx];
+  const age = DB.cfg.showAge ? ageNow(p) : null;
+  return '<section class="hero rise" id="hero">'+
+    '<span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>'+
+    '<div class="cake">'+ic("cake")+'</div>'+
+    '<div class="kicker">Today\'s birthday</div>'+
+    '<div class="name">'+esc(firstName(p.name))+'</div>'+
+    '<div class="meta">'+esc(subLine(p))+'</div>'+
+    (age!=null? '<div class="meta" style="margin-top:var(--s1);color:var(--gold);font-weight:700">Turning '+age+' today</div>' : '')+
+    '<p class="wish">Wishing you a beautiful day filled with happiness and wonderful moments.</p>'+
+    '<div class="sprinkle">🎈 ✨ 🎉</div>'+
+    '<div class="btnrow" style="width:100%">'+
+      '<button class="btn btn-gold" data-act="msg" data-id="'+p.id+'">'+ic("wa")+'Share birthday wish</button>'+
+    '</div>'+
+    (list.length>1 ? '<div class="dots">'+list.map((x,i)=>
+        '<i class="'+(i===heroIdx?"on":"")+'" role="button" tabindex="0" data-act="hero-dot" data-i="'+i+'" aria-label="Show '+esc(x.name)+'"></i>').join("")+'</div>'+
+      '<div class="tiny" style="margin-top:var(--s3);color:rgba(255,255,255,.75)">'+list.length+' birthdays today</div>' : '')+
+  '</section>';
+}
+function heroQuiet(next){
+  return '<section class="hero-quiet rise">'+
+    '<div class="qtop">'+
+      '<div class="glowring">'+ic("balloon")+'</div>'+
+      '<div style="min-width:0"><b style="font-size:17px;letter-spacing:-.02em">No birthday today ✨</b>'+
+      '<div class="tiny muted" style="margin-top:2px">'+(next? "Your next celebration is coming up." : "Add dates of birth to see celebrations here.")+'</div></div>'+
+    '</div>'+
+    (next ? '<button class="qnext" data-act="profile" data-id="'+next.p.id+'" style="width:100%;text-align:left">'+
+        avatar(next.p,"sm")+
+        '<span style="flex:1;min-width:0"><span style="display:block;font-size:16px;font-weight:700;letter-spacing:-.02em;overflow-wrap:anywhere">'+esc(next.p.name)+'</span>'+
+        '<span class="tiny muted" style="display:block;margin-top:2px">'+dayLong(next.date)+' • '+daysWord(next.days).toLowerCase()+'</span></span>'+
+        '<span style="flex:none;color:var(--ink3);display:flex">'+ic("right")+'</span>'+
+      '</button>' : '')+
+  '</section>';
+}
+
+/* ---- THIS WEEK ---- */
+function currentMonday(){ return anchor || (anchor = mondayOf(today())); }
+function viewWeek(){
+  const mon = currentMonday();
+  const days = weekDays(mon);
+  const all = weekPeople(mon);
+  const branches = Array.from(new Set(all.map(x=>x.p.branch).filter(Boolean)));
+  const isThis = sameDay(mon, mondayOf(today()));
+
+  let out = '<h1 class="h-page" style="margin:var(--s1) 0 var(--s4)">Weekly birthdays</h1>';
+
+  out += '<div class="weeknav">'+
+      '<button class="iconbtn" data-act="week-prev" aria-label="Previous week">'+ic("left")+'</button>'+
+      '<span class="lbl"><b>'+esc(weekLabel(mon))+'</b>'+
+        '<span>'+(isThis? "This week" : sameDay(mon,addDays(mondayOf(today()),7))? "Next week"
+                 : sameDay(mon,addDays(mondayOf(today()),-7))? "Last week" : "")+'</span></span>'+
+      '<button class="iconbtn" data-act="week-next" aria-label="Next week">'+ic("right")+'</button>'+
+    '</div>';
+
+  out += '<div class="chips" style="margin-bottom:var(--s4)">'+
+      (isThis? '' : '<button class="chip on" data-act="week-this">'+ic("back")+'Back to this week</button>')+
+      '<button class="chip" data-act="week-pick">'+ic("cal")+'Pick a week</button>'+
+    '</div>';
+
+  out += '<div class="card pad rise">'+
+      '<div class="eyebrow">'+esc(weekLabel(mon))+'</div>'+
+      '<div class="display d-xl" style="margin:8px 0 4px">'+
+        (all.length? all.length+(all.length===1?" celebration":" celebrations") : "A quiet week")+'</div>'+
+      '<div class="tiny muted">'+(branches.length? esc(branches.join(" • ")) : "No birthdays fall in these seven days")+'</div>'+
+      '<div class="btnrow" style="margin-top:16px">'+
+        '<button class="btn btn-primary" data-act="report"'+(all.length?"":" disabled style=\"opacity:.45\"")+'>'+ic("image")+'Celebration card</button>'+
+        '<button class="btn btn-ghost" data-act="md-msg"'+(all.length?"":" disabled style=\"opacity:.45\"")+'>'+ic("wa")+'MD message</button>'+
+      '</div>'+
+    '</div>';
+
+  out += '<section class="sec">'+ (all.length ? days.filter(d=>d.people.length).map(d=>{
+      const isToday = sameDay(d.date, today());
+      return '<div style="margin-bottom:var(--s6)">'+
+        '<div style="margin:0 0 var(--s3)">'+
+          '<div class="eyebrow" style="color:'+(isToday?"var(--gold)":"var(--ink3)")+'">'+
+            DAYS[d.date.getDay()].toUpperCase()+(isToday?" • TODAY":"")+'</div>'+
+          '<div class="display d-md" style="margin-top:2px">'+dayLong(d.date)+'</div>'+
+        '</div><div class="plist">'+ d.people.map(p=>personCard(p,{today:isToday,date:d.date})).join("") +'</div></div>';
+    }).join("") : emptyState("balloon","No celebrations this week",
+        "Move to another week, or check that everyone's date of birth is recorded.",
+        "Check missing dates","go-missing")) + '</section>';
+  return out;
+}
+function personCard(p,o){
+  o=o||{};
+  const d = o.date || nextOn(p);
+  const n = o.days!=null ? o.days : (d? Math.round((d-today())/86400000) : null);
+  return '<div class="pcard'+(o.today?" is-today":"")+'">'+
+    avatar(p)+
+    '<button class="who" data-act="profile" data-id="'+p.id+'" style="text-align:left">'+
+      '<span class="nm">'+esc(p.name)+'</span>'+
+      '<span class="sub">'+esc(ageBit(p)+subLine(p))+'</span>'+
+      (hasDob(p)
+        ? '<span class="bd">'+ic("cake")+dayShort(d)+(n===0?" • Today":n===1?" • Tomorrow":n!=null&&n<=30?" • "+n+" days":"")+'</span>'
+        : '<span class="bd none">'+ic("cake")+'No date of birth</span>')+
+    '</button>'+
+    '<button class="kebab" data-act="row-menu" data-id="'+p.id+'" aria-label="Actions for '+esc(p.name)+'">'+ic("more2")+'</button>'+
+  '</div>';
+}
+function emptyState(icon,title,text,btn,act){
+  return '<div class="empty"><div class="ic">'+ic(icon)+'</div><b>'+esc(title)+'</b><p>'+esc(text)+'</p>'+
+    (btn?'<button class="btn btn-ghost btn-sm" data-act="'+act+'">'+esc(btn)+'</button>':'')+'</div>';
+}
+
+
+/* ---- PEOPLE ---- */
+function filteredPeople(){
+  const q = query.trim().toLowerCase();
+  let list = DB.emp.filter(p=>{
+    if(fBranch && p.branch!==fBranch) return false;
+    if(!q) return true;
+    const hay = (p.name+" "+p.branch+" "+p.dept+" "+p.phone+" "+phoneDisplay(p.phone)).toLowerCase();
+    return hay.includes(q) || (q.replace(/\D/g,"") && p.phone.includes(q.replace(/\D/g,"")));
+  });
+  if(sortMode==="name") list.sort((a,b)=>a.name.localeCompare(b.name));
+  else list.sort((a,b)=>{
+    const x=daysTo(a), y=daysTo(b);
+    if(x==null && y==null) return a.name.localeCompare(b.name);
+    if(x==null) return 1; if(y==null) return -1;
+    return x-y || a.name.localeCompare(b.name);
+  });
+  return list;
+}
+function viewPeople(){
+  const branches = DB.cfg.branches||[];
+  let out = '<div class="spread" style="margin:var(--s1) 0 var(--s4)">'+
+      '<h1 class="h-page">People</h1>'+
+      '<button class="btn btn-primary btn-sm" data-act="add">'+ic("plus")+'Add</button></div>';
+
+  out += '<div class="search">'+ic("search")+
+      '<input id="q" type="search" placeholder="Search name, branch or number…" autocomplete="off" aria-label="Search employees" value="'+esc(query)+'">'+
+      (query? '<button class="clr" data-act="clear-q" aria-label="Clear search">'+ic("x")+'</button>':'')+
+    '</div>';
+
+  out += '<div class="chips" style="margin-top:var(--s3)">'+
+      '<button class="chip'+(fBranch?"":" on")+'" data-act="branch" data-b="">All branches</button>'+
+      branches.map(b=>'<button class="chip'+(fBranch===b?" on":"")+'" data-act="branch" data-b="'+esc(b)+'">'+esc(b)+'</button>').join("")+
+    '</div>';
+
+  out += '<div class="spread" style="margin:var(--s4) 0 var(--s3)">'+
+      '<span class="eyebrow" id="pcount"></span>'+
+      '<button class="chip" data-act="sort">'+ic("sort")+(sortMode==="next"?"Next birthday":"Name")+'</button>'+
+    '</div><div id="plist" class="plist"></div>';
+  return out;
+}
+function paintPeople(){
+  const box=$("#plist"); if(!box) return;
+  const list=filteredPeople();
+  const c=$("#pcount"); if(c) c.textContent = list.length+" of "+DB.emp.length+" people";
+  box.innerHTML = list.length
+    ? list.map(p=>personCard(p)).join("")
+    : (DB.emp.length
+        ? emptyState("search","Nothing matched","Try a different name, branch or department.","Clear search","clear-q")
+        : emptyState("users","Your people list is empty","Add your first colleague and their birthday will show up here.","Add someone","add"));
+}
+
+/* ---- CALENDAR ---- */
+function viewCal(){
+  const t=today();
+  if(!calY){ calY=t.getFullYear(); calM=t.getMonth(); }
+  const map = monthMap(calY,calM);
+  const first = new Date(calY,calM,1);
+  const lead = (first.getDay()+6)%7;                 /* Monday-first */
+  const len = new Date(calY,calM+1,0).getDate();
+  const count = Object.values(map).reduce((n,a)=>n+a.length,0);
+
+  let cells="";
+  for(let i=0;i<lead;i++) cells += '<div class="cell blank"></div>';
+  for(let d=1;d<=len;d++){
+    const has = !!map[d], isT = (calY===t.getFullYear()&&calM===t.getMonth()&&d===t.getDate());
+    const sel = calSel===d;
+    cells += '<button class="cell'+(has?" has":"")+(isT?" today":"")+'" data-act="calday" data-d="'+d+'" '+
+      'aria-pressed="'+(sel?"true":"false")+'" aria-label="'+d+' '+MONS[calM]+(has?", "+map[d].length+" birthdays":"")+'">'+
+      '<span>'+d+'</span>'+(has?'<span class="bd"></span>':'')+'</button>';
+  }
+
+  let out = '<div class="spread" style="margin:var(--s1) 0 var(--s4)">'+
+      '<h1 class="h-page">Calendar</h1>'+
+      '<div class="row" style="gap:8px">'+
+        '<button class="iconbtn" data-act="cal-prev" aria-label="Previous month">'+ic("left")+'</button>'+
+        '<button class="iconbtn" data-act="cal-next" aria-label="Next month">'+ic("right")+'</button>'+
+      '</div></div>';
+
+  out += '<div class="card pad">'+
+      '<div class="spread" style="margin-bottom:var(--s4)">'+
+        '<div style="min-width:0"><div class="display d-md">'+MONS[calM]+' '+calY+'</div>'+
+        '<div class="tiny muted" style="margin-top:2px">'+(count? count+(count===1?" birthday":" birthdays") : "No birthdays")+'</div></div>'+
+        '<button class="chip" data-act="cal-today">Today</button>'+
+      '</div>'+
+      '<div class="cal">'+["M","T","W","T","F","S","S"].map(d=>'<div class="dow">'+d+'</div>').join("")+cells+'</div>'+
+    '</div>';
+
+  const sel = calSel && map[calSel];
+  out += '<section class="sec">'+
+    (sel
+      ? '<div class="sec-head"><h2 class="h-sec">'+calSel+' '+MONS[calM]+'</h2>'+
+        '<span class="tiny muted">'+sel.length+(sel.length===1?" person":" people")+'</span></div>'+
+        '<div class="plist">'+sel.map(p=>personCard(p,{date:new Date(calY,calM,calSel)})).join("")+'</div>'
+      : '<div class="card pad tiny muted" style="text-align:center">'+
+        (count? "Tap a highlighted date to see who is celebrating." : "No celebrations in this month.")+'</div>')+
+  '</section>';
+  return out;
+}
+
+/* ---- MORE ---- */
+function moreRow(icon,title,sub,act,arg){
+  return '<button class="srow" data-act="'+act+'"'+(arg?' data-arg="'+esc(arg)+'"':'')+'>'+
+    '<span class="ic">'+ic(icon)+'</span>'+
+    '<span class="who"><span class="nm">'+esc(title)+'</span><span class="sub">'+esc(sub)+'</span></span>'+
+    '<span class="end">'+ic("right")+'</span></button>';
+}
+function viewMore(){
+  const c=DB.cfg;
+  const demo = DB.emp.filter(p=>p.demo).length;
+  let out = '<h1 class="h-page" style="margin:var(--s1) 0 var(--s4)">More</h1>';
+
+  out += '<div class="card pad" style="margin-bottom:var(--s6)">'+
+    '<div class="row"><div class="av lg" style="background:var(--grad-a)">'+ic("cake")+'</div>'+
+    '<div style="flex:1;min-width:0"><div style="font-weight:800;font-size:17px;letter-spacing:-.02em;overflow-wrap:anywhere">'+esc(c.company)+'</div>'+
+    '<div class="tiny muted">'+DB.emp.length+' people • '+(c.branches||[]).length+' branches</div></div></div>'+
+    '<div class="divider"></div>'+
+    '<div class="tiny muted">Data is stored on this device only. Take a backup after any big change.</div>'+
+  '</div>';
+
+  out += '<div class="eyebrow" style="margin:0 0 var(--s3)">Set up</div><div class="plist">'+
+    moreRow("shop","Company details","Name shown on cards and messages","sheet-company")+
+    moreRow("sliders","Branches and departments","Used for filters and the report","sheet-lists")+
+    moreRow("spark","Appearance","Theme, 29 February rule, ages","sheet-appearance")+
+    moreRow("wa","Message templates","MD message and birthday wishes","sheet-templates")+
+  '</div>';
+
+  out += '<div class="eyebrow" style="margin:var(--s6) 0 var(--s3)">Employee data</div><div class="plist">'+
+    moreRow("up","Import from Excel or CSV","Preview and check before anything is added","sheet-import")+
+    moreRow("down","Export the list","Excel or CSV for your records","sheet-export")+
+    moreRow("db","Backup and restore","Move data to another phone or computer","sheet-backup")+
+    (demo? moreRow("trash","Remove demo entries",demo+" marked as demo","remove-demo") : "")+
+    moreRow("refresh","Reload the master list","Replaces everything with the original "+SEED_PEOPLE.length+" records","reload-master")+
+  '</div>';
+
+  out += '<div class="eyebrow" style="margin:var(--s6) 0 var(--s3)">App</div><div class="plist">'+
+    (isInstalled()
+      ? '<button class="srow" data-act="sheet-install">'+
+        '<span class="ic" style="color:#5BE3A0">'+ic("check")+'</span>'+
+        '<span class="who"><span class="nm">App installed</span>'+
+        '<span class="sub">Running from your home screen</span></span>'+
+        '<span class="end">'+ic("right")+'</span></button>'
+      : moreRow("down","Install Kidss Talk Birthdays","Home screen icon, opens without the browser","sheet-install"))+
+    moreRow("info","About this app","Version and how it works","sheet-about")+
+  '</div>';
+  return out;
+}
+
+
+/* ---------------- 6. SHEETS ---------------- */
+function fieldHtml(id,label,type,value,extra){
+  return '<div class="field'+(type==="date"?" filled":"")+'"><input id="'+id+'" type="'+(type||"text")+'" placeholder=" " '+
+    (extra||"")+' value="'+esc(value||"")+'"><label for="'+id+'">'+esc(label)+'</label></div>';
+}
+function listHtml(id){
+  return '<datalist id="'+id+'">'+(DB.cfg[id==="dl-branch"?"branches":"depts"]||[])
+    .map(v=>'<option value="'+esc(v)+'"></option>').join("")+'</datalist>';
+}
+
+function profileSheet(id){
+  const p = DB.emp.find(x=>x.id===id); if(!p) return;
+  const n = nextOn(p), d = daysTo(p), age = ageNow(p);
+  const isToday = d===0;
+  const hasPhone = validPhone(p.phone);
+  const body =
+    '<div style="text-align:center;padding:var(--s1) 0 0">'+
+      avatar(p,"lg")+
+      '<div class="display d-lg" style="margin:var(--s3) 0 var(--s2)">'+esc(p.name)+'</div>'+
+      '<div class="chips" style="justify-content:center;flex-wrap:wrap">'+
+        (age!=null? '<span class="pill pill-violet">Age '+age+'</span>':'')+
+        (p.branch? '<span class="pill">'+esc(p.branch)+'</span>':'')+
+        (p.dept? '<span class="pill">'+esc(p.dept)+'</span>':'')+
+      '</div>'+
+      (isToday? '<div style="margin-top:var(--s3)"><span class="pill pill-gold">'+ic("cake")+'Celebrating today</span></div>':'')+
+    '</div>'+
+
+    '<div class="btnrow" style="margin-top:var(--s5)">'+
+      '<button class="btn btn-primary" data-act="wish" data-id="'+p.id+'">'+ic("cake")+'Birthday wish</button>'+
+    '</div>'+
+    '<div class="btnrow" style="margin-top:var(--s3);grid-auto-flow:column;grid-auto-columns:1fr;grid-template-columns:none">'+
+      '<button class="btn btn-ghost btn-tight" data-act="call" data-id="'+p.id+'"'+(hasPhone?'':' disabled style="opacity:.45"')+'>'+ic("phone")+'Call</button>'+
+      '<button class="btn btn-ghost btn-tight" data-act="wa-open" data-id="'+p.id+'"'+(hasPhone?'':' disabled style="opacity:.45"')+'>'+ic("wa")+'WhatsApp</button>'+
+    '</div>'+
+
+    '<div class="card pad" style="margin-top:var(--s4)">'+
+      infoRow("phone","Mobile number", hasPhone? phoneDisplay(p.phone) : (p.phone? phoneDisplay(p.phone)+" (check this)" : "Not recorded"))+
+      '<div class="divider"></div>'+
+      infoRow("cake","Date of birth", hasDob(p)? dayLong(parseYmd(p.dob))+" "+p.dob.slice(0,4) : "Not recorded")+
+      '<div class="divider"></div>'+
+      infoRow("user","Age", age!=null? age+" years" : "—")+
+      '<div class="divider"></div>'+
+      infoRow("cal","Next celebration", n? DAYS[n.getDay()]+", "+dayLong(n) : "—")+
+      '<div class="divider"></div>'+
+      infoRow("clock","Days to go", d==null? "—" : daysWord(d))+
+      (turningAge(p)? '<div class="divider"></div>'+infoRow("gift","Turning", turningAge(p)+" next birthday") : '')+
+    '</div>'+
+
+    (p.log && p.log.length
+      ? '<div class="eyebrow" style="margin:var(--s5) 0 var(--s3)">Recent activity</div>'+
+        '<div class="card pad">'+ p.log.slice().reverse().slice(0,6).map((l,i)=>
+          (i? '<div class="divider"></div>':'')+
+          '<div class="spread"><span class="tiny" style="color:var(--ink2);font-weight:600">'+esc(LOG_LABEL[l.k]||l.k)+'</span>'+
+          '<span class="tiny muted">'+esc(logWhen(l.d))+'</span></div>').join("")+
+        '<div class="tiny muted" style="margin-top:var(--s3);line-height:1.5">Only what this app did. It cannot tell whether a message was delivered or read.</div>'+
+        '</div>'
+      : '')+
+
+    '<div class="btnrow" style="margin-top:var(--s5);grid-auto-flow:column;grid-auto-columns:1fr;grid-template-columns:none">'+
+      '<button class="btn btn-ghost btn-tight" data-act="edit" data-id="'+p.id+'">'+ic("pencil")+'Edit</button>'+
+      '<button class="btn btn-danger btn-tight" data-act="del" data-id="'+p.id+'">'+ic("trash")+'Delete</button>'+
+    '</div>';
+  openSheet({title:firstName(p.name), body:body, full:true});
+}
+const LOG_LABEL = {
+  "wish-whatsapp":"Birthday wish — WhatsApp opened",
+  "wish-copy":"Birthday wish — message copied",
+  "wa-open":"WhatsApp opened",
+  "call":"Call started"
+};
+function logWhen(iso){
+  const d=new Date(iso);
+  if(isNaN(d)) return "";
+  const t=today(), day=new Date(d.getFullYear(),d.getMonth(),d.getDate());
+  const diff=Math.round((t-day)/86400000);
+  const time=pad2(d.getHours())+":"+pad2(d.getMinutes());
+  return (diff===0? "Today" : diff===1? "Yesterday" : dayShort(day)+" "+day.getFullYear())+" • "+time;
+}
+function infoRow(icon,label,value){
+  return '<div class="spread"><span class="row" style="gap:10px;color:var(--ink3)">'+
+    '<span style="width:18px;height:18px;display:block">'+ic(icon)+'</span>'+
+    '<span class="tiny" style="color:var(--ink2);font-weight:600">'+esc(label)+'</span></span>'+
+    '<b style="font-size:13.5px;text-align:right;min-width:0;overflow-wrap:anywhere">'+esc(value)+'</b></div>';
+}
+
+function formSheet(id){
+  const p = id ? DB.emp.find(x=>x.id===id) : null;
+  const body =
+    (p? '' : '<p class="muted tiny" style="margin:0 0 4px">A name is enough to start. Add the date of birth whenever you have it.</p>')+
+    fieldHtml("f-name","Employee name","text",p?p.name:"","autocomplete=off required")+
+    fieldHtml("f-phone","Mobile number","tel",p?phoneDisplay(p.phone):"",'autocomplete=off inputmode="tel" placeholder=" "')+
+    fieldHtml("f-branch","Branch","text",p?p.branch:"",'list="dl-branch" autocomplete=off')+
+    fieldHtml("f-dept","Department","text",p?p.dept:"",'list="dl-dept" autocomplete=off')+
+    fieldHtml("f-dob","Date of birth","date",p?p.dob:"",'max="'+ymd(today())+'"')+
+    '<div class="fielderr" id="f-err" hidden></div>'+
+    listHtml("dl-branch")+listHtml("dl-dept")+
+    '<p class="tiny muted" style="margin-top:var(--s4);line-height:1.55">Age is worked out from the date of birth, so there is nothing to update each year. '+
+    'Indian numbers can be typed as 9876543210 — the +91 is added for you.</p>';
+  openSheet({
+    title: p? "Edit "+firstName(p.name) : "Add someone new 🎉",
+    body: body, full:true,
+    foot: '<button class="btn btn-quiet" data-act="close">Cancel</button>'+
+          '<button class="btn btn-primary" data-act="save" data-id="'+(p?p.id:"")+'">'+ic("check")+(p?"Save changes":"Add person")+'</button>',
+    after(){ const dob=$("#f-dob"); if(dob && dob.value) dob.parentNode.classList.add("filled"); }
+  });
+}
+function saveForm(id){
+  const name=$("#f-name").value.trim(), branch=$("#f-branch").value.trim(),
+        dept=$("#f-dept").value.trim(), dob=$("#f-dob").value.trim(),
+        phone=$("#f-phone").value.trim();
+  const err=$("#f-err");
+  const fail = m => { err.textContent=m; err.hidden=false; $("#f-name").parentNode.classList.toggle("err", m.indexOf("name")>-1); };
+  if(!name) return fail("Please enter the employee name.");
+  if(dob && !validDob(dob)) return fail("That date of birth is not a valid date.");
+  if(dob && parseYmd(dob) > today()) return fail("The date of birth cannot be in the future.");
+  if(phone && !validPhone(phone))
+    return fail("That mobile number does not look right. An Indian number has 10 digits starting 6, 7, 8 or 9.");
+  const dupe = DB.emp.find(x=>x.id!==id && x.name.toLowerCase()===name.toLowerCase());
+  if(dupe && !id && !saveForm.forced){
+    saveForm.forced = true;
+    return fail(name+" is already on the list. Press add again to keep both.");
+  }
+  saveForm.forced = false;
+  if(id){ DB.update(id,{name,phone,branch,dept,dob}); toast("Employee updated ✓","ok"); }
+  else  { DB.add({name,phone,branch,dept,dob}); toast(firstName(name)+" added ✓","ok"); confettiBurst(40); }
+  closeSheet(); refresh();
+}
+
+/* ---- messages ---- */
+function fillMsg(tpl,p,extra){
+  const d = (p && nextOn(p)) || today();
+  const turning = p ? turningAge(p, d) : null;
+  const useAge = DB.cfg.ageInMsg && turning != null;
+  return String(tpl)
+    .replace(/{EmployeeName}/g,p?p.name:"")
+    .replace(/{Age}/g, turning!=null? String(turning) : "")
+    .replace(/{Branch}/g,p?(p.branch||"Kidss Talk"):"")
+    .replace(/{Department}/g,p?(p.dept||""):"")
+    .replace(/{ageth}/g, useAge? ordinal(turning)+" " : "")
+    .replace(/{age}/g, turning!=null? String(turning) : "")
+    .replace(/{name}/g,p?p.name:"")
+    .replace(/{first}/g,p?firstName(p.name):"")
+    .replace(/{branch}/g,p?(p.branch||"Kidss Talk"):"")
+    .replace(/{dept}/g,p?(p.dept||""):"")
+    .replace(/{date}/g,dayLong(d))
+    .replace(/{count}/g,(extra&&extra.count)||"")
+    .replace(/{plural}/g,(extra&&extra.count)===1?" is":"s are")
+    .replace(/{company}/g,DB.cfg.company);
+}
+function empTemplates(){
+  return String(DB.cfg.empMsg||DEFAULT_EMP).split(/\n-{3,}\n/).map(s=>s.trim()).filter(Boolean);
+}
+let msgVariant = 0, msgDraft = null, msgFor = null;
+function composerSheet(id){
+  const p = DB.emp.find(x=>x.id===id); if(!p) return;
+  const tpls = empTemplates();
+  msgVariant = ((msgVariant % tpls.length) + tpls.length) % tpls.length;
+  if(msgFor !== id){ msgFor = id; msgDraft = null; }
+  const text = msgDraft != null ? msgDraft : fillMsg(tpls[msgVariant], p);
+  const age = ageNow(p), hasPhone = validPhone(p.phone);
+  const body =
+    '<div class="card pad">'+
+      '<div class="row">'+avatar(p)+
+        '<div style="flex:1;min-width:0">'+
+          '<div style="font-size:16px;font-weight:700;letter-spacing:-.02em;overflow-wrap:anywhere">'+esc(p.name)+'</div>'+
+          '<div class="tiny muted" style="margin-top:2px">'+
+            (age!=null? "Age "+age+" • " : "")+esc(subLine(p))+'</div>'+
+          '<div class="tiny" style="margin-top:4px;color:'+(hasPhone?"var(--gold)":"var(--ink3)")+'">'+
+            (p.phone? esc(phoneDisplay(p.phone)) : "No mobile number saved")+'</div>'+
+        '</div></div>'+
+    '</div>'+
+    '<div class="field"><textarea id="msgText" placeholder=" " spellcheck="false">'+esc(text)+'</textarea>'+
+      '<label for="msgText">Message — edit it freely</label></div>'+
+    (tpls.length>1
+      ? '<button class="btn btn-quiet btn-sm btn-block" style="margin-top:var(--s3)" data-act="msg-next" data-id="'+p.id+'">'+
+        ic("refresh")+'Another wording ('+(msgVariant+1)+' of '+tpls.length+')</button>' : '')+
+    (hasPhone
+      ? '<p class="tiny muted" style="margin-top:var(--s4);line-height:1.55">WhatsApp opens on '+esc(phoneDisplay(p.phone))+' with this message ready. You press send.</p>'
+      : '<p class="tiny muted" style="margin-top:var(--s4);line-height:1.55">No mobile number saved, so WhatsApp will ask you to pick the contact. Add the number in Edit to skip that step.</p>');
+  openSheet({
+    title:"Birthday wish", body:body, full:true,
+    foot:'<button class="btn btn-ghost" data-act="copy-msg" data-id="'+p.id+'">'+ic("copy")+'Copy</button>'+
+         '<button class="btn btn-primary" data-act="wa-send" data-id="'+p.id+'">'+ic("wa")+'WhatsApp</button>'
+  });
+}
+function currentDraft(){
+  const el = $("#msgText");
+  return el ? (el.value != null ? el.value : el.textContent) : "";
+}
+function openWhatsApp(number,text){
+  const base = number ? "https://wa.me/"+number : "https://wa.me/";
+  const url = base + (text ? "?text="+encodeURIComponent(text) : "");
+  const w = window.open(url,"_blank","noopener");
+  if(w) toast("WhatsApp opened — press send there");
+  else { copyText(text); toast("Message copied — paste it into WhatsApp","ok"); }
+}
+function telDial(number){
+  const a = document.createElement("a");
+  a.href = "tel:"+number; a.style.display="none";
+  document.body.appendChild(a); a.click(); a.remove();
+}
+function mdMessageText(){
+  const mon = currentMonday(), all = weekPeople(mon);
+  const withPhones = !!DB.cfg.mdPhones;
+  const lines = all.map(x=>{
+    const age = DB.cfg.showAge? ageNow(x.p, x.date) : null;
+    const bits = [dayShort(x.date)];
+    if(age!=null) bits.push("Age "+age);
+    if(x.p.branch) bits.push(x.p.branch);
+    if(withPhones && validPhone(x.p.phone)) bits.push(phoneDisplay(x.p.phone));
+    return "🎂 "+x.p.name+" — "+bits.join(" • ");
+  }).join("\n");
+  return fillMsg(DB.cfg.mdMsg||DEFAULT_MD, null, {count:all.length}) +
+         (all.length? "\n\n"+lines : "");
+}
+function mdMsgSheet(){
+  const withPhones = !!DB.cfg.mdPhones;
+  const missing = weekPeople(currentMonday()).filter(x=>!validPhone(x.p.phone)).length;
+  const body =
+    '<div class="msgcard"><div class="body" id="msgText">'+esc(mdMessageText())+'</div></div>'+
+    '<div class="chips" style="margin-top:var(--s3)">'+
+      '<button class="chip'+(withPhones?" on":"")+'" data-act="toggle-mdphones" aria-pressed="'+(withPhones?"true":"false")+'">'+
+        ic("phone")+(withPhones? "Numbers included" : "Add mobile numbers")+'</button>'+
+    '</div>'+
+    (withPhones
+      ? '<p class="tiny" style="margin-top:var(--s3);line-height:1.55;color:var(--gold)">'+
+        'Employee mobile numbers are in this message. A WhatsApp message can be forwarded on by anyone who receives it — send it only to the MD.'+
+        (missing? ' '+missing+' of them have no number saved and are listed without one.' : '')+'</p>'
+      : '<p class="tiny muted" style="margin-top:var(--s3);line-height:1.55">Mobile numbers are left out. Turn them on above if the MD needs to call people directly.</p>')+
+    '<p class="tiny muted" style="margin-top:var(--s3);line-height:1.55">Send the celebration card as an image first, then paste this message underneath. '+
+    'The card itself never carries numbers.</p>';
+  openSheet({
+    title:"Message for the MD", body:body,
+    foot:'<button class="btn btn-ghost" data-act="copy-msg">'+ic("copy")+'Copy</button>'+
+         '<button class="btn btn-primary" data-act="share-msg">'+ic("wa")+'Share</button>'
+  });
+}
+async function copyText(t){
+  try{
+    if(navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(t); return true; }
+  }catch(e){}
+  try{
+    const a=document.createElement("textarea"); a.value=t;
+    a.style.cssText="position:fixed;top:-1000px"; document.body.appendChild(a);
+    a.select(); const ok=document.execCommand("copy"); a.remove(); return ok;
+  }catch(e){ return false; }
+}
+async function shareText(text){
+  if(navigator.share){
+    try{ await navigator.share({text:text}); toast("Shared","ok"); return; }
+    catch(e){ if(e && e.name==="AbortError") return; }
+  }
+  const w = window.open("https://wa.me/?text="+encodeURIComponent(text),"_blank","noopener");
+  if(w) toast("WhatsApp opened — press send there");
+  else { await copyText(text); toast("Message copied — paste it into WhatsApp","ok"); }
+}
+
+/* ---- settings sheets ---- */
+function companySheet(){
+  const c=DB.cfg;
+  openSheet({
+    title:"Company details",
+    body: fieldHtml("s-company","Company name","text",c.company)+
+          fieldHtml("s-tagline","Line under the name","text",c.tagline)+
+          '<p class="tiny muted" style="margin-top:14px">Both appear on the celebration card you send to management.</p>',
+    foot:'<button class="btn btn-quiet" data-act="close">Cancel</button>'+
+         '<button class="btn btn-primary" data-act="save-company">'+ic("check")+'Save</button>'
+  });
+}
+function listsSheet(){
+  const c=DB.cfg;
+  const grp=(k,label)=> '<div class="eyebrow" style="margin:18px 2px 10px">'+label+'</div>'+
+    '<div class="chips" style="flex-wrap:wrap">'+(c[k]||[]).map(v=>
+      '<span class="chip">'+esc(v)+'<button data-act="del-list" data-k="'+k+'" data-v="'+esc(v)+'" aria-label="Remove '+esc(v)+'" style="display:flex;width:16px;height:16px;color:var(--ink3)">'+ic("x")+'</button></span>').join("")+'</div>'+
+    '<div class="row" style="margin-top:10px;gap:8px">'+
+      '<div class="field" style="flex:1;margin:0"><input id="add-'+k+'" placeholder=" " autocomplete="off"><label for="add-'+k+'">Add '+(k==="branches"?"a branch":"a department")+'</label></div>'+
+      '<button class="btn btn-ghost" data-act="add-list" data-k="'+k+'">'+ic("plus")+'</button></div>';
+  openSheet({
+    title:"Branches and departments",
+    body:'<p class="tiny muted" style="margin:0 0">Names already used by an employee cannot be removed — change the employee first.</p>'+
+         grp("branches","Branches")+grp("depts","Departments")
+  });
+}
+function appearanceSheet(){
+  const c=DB.cfg;
+  const sw=(label,sub,act,onNow)=>'<div class="switch"><div><b style="font-size:14.5px">'+esc(label)+'</b>'+
+    '<div class="tiny muted" style="margin-top:2px">'+esc(sub)+'</div></div>'+
+    '<button class="tgl" data-act="'+act+'" aria-pressed="'+(onNow?"true":"false")+'" aria-label="'+esc(label)+'"><i></i></button></div>';
+  openSheet({
+    title:"Appearance",
+    body:
+      sw("Light theme","Dark is the default and looks best on phones","toggle-theme",c.ui==="light")+
+      '<div class="divider"></div>'+
+      sw("Show ages","Age on profiles, cards and the celebration card","toggle-age",!!c.showAge)+
+      '<div class="divider"></div>'+
+      sw("Age inside the birthday wish","“a very Happy 27th Birthday” instead of “Happy Birthday”","toggle-agemsg",!!c.ageInMsg)+
+      '<div class="divider"></div>'+
+      '<div class="eyebrow" style="margin:6px 2px 8px">29 February birthdays</div>'+
+      '<div class="chips" style="flex-wrap:wrap">'+
+        [["feb28","Celebrate 28 Feb"],["mar01","Celebrate 1 Mar"],["exact","Only in leap years"]].map(([v,l])=>
+          '<button class="chip'+(c.leap===v?" on":"")+'" data-act="leap" data-v="'+v+'">'+l+'</button>').join("")+
+      '</div>'+
+      '<p class="tiny muted" style="margin-top:12px">This decides where a 29 February birthday lands in ordinary years.</p>'+
+      '<div class="divider"></div>'+
+      '<div class="eyebrow" style="margin:6px 2px 8px">Celebration card</div>'+
+      '<div class="chips">'+
+        [["colour","Midnight"],["light","Daylight"]].map(([v,l])=>
+          '<button class="chip'+((c.theme||"colour")===v?" on":"")+'" data-act="cardstyle" data-v="'+v+'">'+l+'</button>').join("")+
+      '</div>'+
+      '<p class="tiny muted" style="margin-top:12px">Midnight suits WhatsApp; Daylight prints on white paper without using much ink.</p>'
+  });
+}
+function templatesSheet(){
+  const c=DB.cfg;
+  openSheet({
+    title:"Message templates", wide:true, full:true,
+    body:
+      '<div class="eyebrow" style="margin:4px 2px 0">Weekly message to the MD</div>'+
+      '<div class="field"><textarea id="t-md" placeholder=" ">'+esc(c.mdMsg||DEFAULT_MD)+'</textarea><label for="t-md">MD message</label></div>'+
+      '<div class="eyebrow" style="margin:18px 2px 0">Birthday wishes</div>'+
+      '<div class="field"><textarea id="t-emp" placeholder=" " style="min-height:230px">'+esc(c.empMsg||DEFAULT_EMP)+'</textarea><label for="t-emp">Wishes, separated by a line with three dashes</label></div>'+
+      '<p class="tiny muted" style="margin-top:var(--s3);line-height:1.6">Placeholders: '+
+      '{EmployeeName} {Age} {Branch} {Department}, and the shorter {name} {first} {branch} {dept} {date} {company}. '+
+      '{ageth} becomes “27th ” only while <b>Age inside the birthday wish</b> is on, and disappears when it is off. '+
+      'The MD message also takes {count} and {plural}.</p>'+
+      '<button class="btn btn-quiet btn-sm btn-block" style="margin-top:12px" data-act="reset-templates">'+ic("refresh")+'Restore the original wording</button>',
+    foot:'<button class="btn btn-quiet" data-act="close">Cancel</button>'+
+         '<button class="btn btn-primary" data-act="save-templates">'+ic("check")+'Save</button>'
+  });
+}
+/* ---- installation: status + real diagnostics ----
+   Chrome refuses to install for several different reasons and reports none of
+   them to the page. So every requirement is checked here and shown plainly. */
+function isInstalled(){
+  try{
+    if(navigator.standalone === true) return true;                       /* iOS */
+    if(window.matchMedia){
+      if(matchMedia("(display-mode: standalone)").matches) return true;
+      if(matchMedia("(display-mode: window-controls-overlay)").matches) return true;
+      if(matchMedia("(display-mode: fullscreen)").matches) return true;
+    }
+    if(document.referrer.indexOf("android-app://")===0) return true;
+  }catch(e){}
+  return false;
+}
+function checkRow(state,label,detail){
+  const col = state==="ok"?"#5BE3A0":state==="bad"?"#FF89B4":"var(--ink3)";
+  const mark = state==="ok"?"check":state==="bad"?"x":"info";
+  return '<div class="row" style="align-items:flex-start;gap:11px;padding:11px 0">'+
+    '<span style="width:18px;height:18px;flex:none;color:'+col+';margin-top:1px">'+ic(mark)+'</span>'+
+    '<span style="flex:1;min-width:0"><b style="font-size:14px;display:block;overflow-wrap:anywhere">'+esc(label)+'</b>'+
+    '<span class="tiny muted" style="display:block;margin-top:2px;line-height:1.5;overflow-wrap:anywhere">'+esc(detail)+'</span></span></div>';
+}
+let installReport = "";
+async function runInstallChecks(){
+  const out=[]; let blocking=0;
+  const add=(st,l,d)=>{ out.push(checkRow(st,l,d)); if(st==="bad") blocking++; };
+
+  /* 1. secure context — judge by the address, not only isSecureContext */
+  const local = location.hostname==="localhost" || location.hostname==="127.0.0.1";
+  const secure = location.protocol==="https:" || local;
+  add(secure?"ok":"bad","Served over HTTPS",
+    secure? location.protocol+"//"+location.host
+          : location.protocol==="file:"
+            ? "This is a file opened from the phone's storage. It can never be installed — upload the files and open the https:// address."
+            : "Opened over "+location.protocol.replace(":","")+". Android only installs from an https:// address such as GitHub Pages.");
+
+  /* 2. manifest */
+  let mf=null;
+  const link=document.querySelector('link[rel="manifest"]');
+  if(!link) add("bad","Manifest linked","No manifest link in the page.");
+  else{
+    try{
+      const res=await fetch(link.href,{cache:"no-store"});
+      if(!res.ok) throw new Error("HTTP "+res.status);
+      mf=await res.json();
+      add("ok","Manifest loads",link.href.split("/").pop()+" — "+res.status+" "+(res.headers.get("content-type")||""));
+    }catch(e){
+      add("bad","Manifest loads","Could not read "+link.href+" ("+e.message+"). The file is probably not uploaded next to index.html.");
+    }
+  }
+  if(mf){
+    const need=["name","short_name","start_url","display","icons"];
+    const missing=need.filter(k=>!mf[k]);
+    add(missing.length?"bad":"ok","Manifest fields",
+      missing.length? "Missing: "+missing.join(", ") : mf.name+" • "+mf.short_name+" • display: "+mf.display);
+    add(mf.display==="standalone"?"ok":"bad","Opens without browser bars",
+      "display is "+mf.display+(mf.display==="standalone"?"":" — must be standalone"));
+  }
+
+  /* 3. icons actually reachable at the right size */
+  if(mf && mf.icons){
+    const results=await Promise.all(mf.icons.map(i=>new Promise(res=>{
+      const img=new Image();
+      img.onload=()=>res({src:i.src,ok:true,w:img.naturalWidth,h:img.naturalHeight,want:i.sizes});
+      img.onerror=()=>res({src:i.src,ok:false});
+      img.src=new URL(i.src, link? link.href : location.href).href;
+    })));
+    const broken=results.filter(r=>!r.ok);
+    const wrong=results.filter(r=>r.ok && r.want && r.want!==r.w+"x"+r.h);
+    const big=results.some(r=>r.ok && r.w>=512), small=results.some(r=>r.ok && r.w>=192);
+    if(broken.length) add("bad","App icons load",broken.map(b=>b.src).join(", ")+" could not be fetched.");
+    else if(wrong.length) add("bad","App icons load",wrong.map(r=>r.src+" is "+r.w+"×"+r.h+", manifest says "+r.want).join("; "));
+    else if(!(big&&small)) add("bad","App icons load","A 192×192 and a 512×512 icon are both required.");
+    else add("ok","App icons load",results.map(r=>r.w+"×"+r.h).join(", "));
+  }
+
+  /* 3b. is this a real browser, or a page opened inside another app? */
+  const ua0 = navigator.userAgent;
+  const inApp = /; wv\)/.test(ua0) || /\bFBAN|FBAV|Instagram|Line\/|MicroMessenger|Snapchat|Twitter/i.test(ua0);
+  const isChrome = /Chrome\//.test(ua0) && !/EdgA|OPR|SamsungBrowser/.test(ua0);
+  add(inApp? "bad" : "ok", "Opened in a real browser",
+    inApp? "This page is running inside another app's built-in browser (opened from WhatsApp, Instagram or similar). "+
+           "Those cannot install anything. Tap the ⋮ menu and choose “Open in Chrome”, or paste the address into Chrome."
+         : (isChrome? "Chrome" : /Firefox/i.test(ua0)? "Firefox"
+            : /SamsungBrowser/i.test(ua0)? "Samsung Internet"
+            : /Safari/i.test(ua0)? "Safari" : "Browser") + " — installation is supported here.");
+
+  /* 3c. address the page was opened from */
+  const host = location.hostname;
+  const badHost = /raw\.githubusercontent|githubusercontent\.com/.test(host);
+  add(badHost? "bad":"ok","Correct web address",
+    badHost? "raw.githubusercontent.com serves files as plain text and can never be installed. "+
+             "Use your GitHub Pages address instead (yourname.github.io/…)."
+           : location.origin + location.pathname);
+
+  /* 4. service worker */
+  if(!("serviceWorker" in navigator)) add("bad","Service worker","This browser has no service worker support.");
+  else{
+    try{
+      const reg = await navigator.serviceWorker.getRegistration();
+      if(!reg) add("bad","Service worker registered", window.__swError
+        ? "Failed — "+window.__swError
+        : "Not registered. If this is your first visit, reload the page once.");
+      else{
+        const w=reg.active?"active":reg.installing?"installing":reg.waiting?"waiting":"unknown";
+        add(reg.active?"ok":"info","Service worker registered","scope "+reg.scope+" — "+w);
+        add(navigator.serviceWorker.controller?"ok":"info","Page under its control",
+          navigator.serviceWorker.controller? "Offline use is working."
+            : "Not yet. Close the tab and open it again — this is normal on a first visit.");
+      }
+    }catch(e){ add("bad","Service worker registered",e.message); }
+  }
+
+  /* 5. what the browser is offering */
+  const ua=navigator.userAgent;
+  const installed=isInstalled();
+  if(installed) add("ok","Already installed","You are running the installed app right now.");
+  else if(deferredPrompt) add("ok","Install offer received","Android has offered installation — use the button below.");
+  else if(/Firefox/i.test(ua)) add("info","Install offer received","Firefox does not offer an automatic prompt. Menu → Install.");
+  else if(/CriOS|iPhone|iPad/i.test(ua)) add("info","Install offer received","On iPhone use Share → Add to Home Screen. iOS never shows a prompt.");
+  else add("info","Install offer received",
+    "No offer yet. Chrome withholds it when the app is already installed, or for a few seconds after the first load.");
+
+  const plain = out.map(h => h.replace(/<[^>]+>/g," ")
+    .replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&amp;/g,"&")
+    .replace(/&lt;/g,"<").replace(/&gt;/g,">")
+    .replace(/\s+/g," ").trim()).join("\n");
+  installReport = "Kidss Talk Birthdays — install check\n" +
+    new Date().toISOString().slice(0,16).replace("T"," ") + "\n" +
+    location.href + "\n" + navigator.userAgent + "\n\n" + plain;
+  return {html:out.join('<div class="divider" style="margin:0"></div>'), blocking:blocking, installed:installed};
+}
+function installSheet(){
+  openSheet({
+    title:"App installation", wide:true,
+    body:'<div class="card pad" id="instChecks"><div class="tiny muted">Checking…</div></div>'+
+      '<div id="instVerdict"></div>'+
+      '<button class="btn btn-quiet btn-block" style="margin-top:var(--s3)" data-act="copy-install-report">'+
+        ic("copy")+'Copy this report</button>'+
+      '<div class="card pad" style="margin-top:14px">'+
+        '<b style="font-size:14.5px">Android — Chrome</b>'+
+        '<p class="tiny muted" style="margin:6px 0 0;line-height:1.6">Menu (⋮) → <b>Install app</b>. '+
+        'If the menu says <b>Open app</b> instead, it is already on your phone — look for <b>KT Birthdays</b> in the app drawer.</p>'+
+      '</div>'+
+      '<div class="card pad" style="margin-top:10px">'+
+        '<b style="font-size:14.5px">iPhone — Safari</b>'+
+        '<p class="tiny muted" style="margin:6px 0 0;line-height:1.6">Tap <b>Share</b>, then <b>Add to Home Screen</b>. '+
+        'Safari has no install button; this is the only route on iOS.</p>'+
+      '</div>'+
+      '<div class="card pad" style="margin-top:10px">'+
+        '<b style="font-size:14.5px">Computer — Chrome or Edge</b>'+
+        '<p class="tiny muted" style="margin:6px 0 0;line-height:1.6">The install icon sits at the right of the address bar.</p>'+
+      '</div>',
+    after(){
+      runInstallChecks().then(r=>{
+        const box=$("#instChecks"); if(!box) return;
+        box.innerHTML=r.html;
+        const v=$("#instVerdict"); if(!v) return;
+        if(r.installed){
+          v.innerHTML='<div class="card pad" style="margin-top:14px;border-color:rgba(91,227,160,.35)">'+
+            '<b style="font-size:14.5px;color:#5BE3A0">Installed</b>'+
+            '<p class="tiny muted" style="margin:6px 0 0;line-height:1.6">You are using the installed app. '+
+            'Android will not offer to install it a second time.</p></div>';
+        }else if(r.blocking){
+          v.innerHTML='<div class="card pad" style="margin-top:14px;border-color:rgba(255,92,154,.35)">'+
+            '<b style="font-size:14.5px;color:#FF89B4">'+r.blocking+(r.blocking===1?" requirement is":" requirements are")+' not met</b>'+
+            '<p class="tiny muted" style="margin:6px 0 0;line-height:1.6">Android will not offer installation until the items marked above are fixed. '+
+            'Each one names the file involved.</p></div>';
+        }else{
+          v.innerHTML='<div class="card pad" style="margin-top:14px;border-color:rgba(91,227,160,.35)">'+
+            '<b style="font-size:14.5px;color:#5BE3A0">Everything Android requires is in place</b>'+
+            '<p class="tiny muted" style="margin:6px 0 0;line-height:1.6">Use the button below if it is showing, otherwise Chrome menu (⋮) → Install app.</p>'+
+            (deferredPrompt? '<button class="btn btn-primary btn-block" style="margin-top:14px" data-act="do-install">'+ic("down")+'Install app</button>' : '')+
+            '</div>';
+        }
+      });
+    }
+  });
+}
+function aboutSheet(){
+  openSheet({
+    title:"About",
+    body:'<div class="card pad">'+
+      infoRow("info","Version","2.0")+'<div class="divider"></div>'+
+      infoRow("users","People on file",String(DB.emp.length))+'<div class="divider"></div>'+
+      infoRow("db","Storage",Store.ok()? "This device" : "Unavailable — data will not be kept")+
+      '</div>'+
+      '<p class="tiny muted" style="margin-top:16px;line-height:1.65">Built for the Kidss Talk HR team. '+
+      'Everything runs on your device: no account, no server, nothing leaves the phone unless you export or share it. '+
+      'That also means data does not sync between devices — use Backup and Restore to move it.</p>'
+  });
+}
+
+/* ---- data tools ---- */
+function pickFile(accept,fn){
+  const f=$("#filePick"); f.value=""; f.accept=accept;
+  f.onchange = ()=>{ const file=f.files&&f.files[0]; if(file) fn(file); };
+  f.click();
+}
+function loadSheetJs(){
+  if(window.XLSX) return Promise.resolve(window.XLSX);
+  if(loadSheetJs.p) return loadSheetJs.p;
+  loadSheetJs.p = new Promise((res,rej)=>{
+    const s=document.createElement("script");
+    s.src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";
+    s.onload=()=>res(window.XLSX); s.onerror=()=>rej(new Error("no sheetjs"));
+    document.head.appendChild(s);
+  });
+  return loadSheetJs.p;
+}
+/* Turn whatever a spreadsheet hands over into YYYY-MM-DD, without letting the
+   timezone move the day. Nothing here builds a date from a bare string unless
+   the format is unambiguous. */
+function normDob(v){
+  if(v==null || v==="") return "";
+
+  /* A real Date, e.g. from an .xlsx cell. Spreadsheet libraries hand these over
+     either at UTC midnight or at local midnight depending on the file, and
+     reading the wrong one shifts the day. Take whichever is midnight. */
+  const isDate = v && typeof v.getTime === "function" && !isNaN(v.getTime());
+  if(isDate){
+    if(v.getUTCHours()===0 && v.getUTCMinutes()===0 && v.getUTCSeconds()===0)
+      return v.getUTCFullYear()+"-"+pad2(v.getUTCMonth()+1)+"-"+pad2(v.getUTCDate());
+    return ymd(v);          /* otherwise the local calendar day, never shifted */
+  }
+
+  let s = String(v).trim();
+  if(!s) return "";
+
+  /* Excel serial number, e.g. 34831 — days since 30 December 1899 */
+  if(/^\d{4,5}(\.\d+)?$/.test(s)){
+    const n = Math.round(parseFloat(s));
+    if(n>=1 && n<=60000){
+      const base = new Date(1899,11,30);
+      base.setDate(base.getDate()+n);
+      return ymd(base);
+    }
+  }
+
+  /* drop any trailing time — "12-05-1995 00:00", "1995-05-12T00:00:00.000Z" */
+  s = s.replace(/[T ]\d{1,2}:\d{2}(:\d{2})?(\.\d+)?\s*(Z|[AaPp]\.?[Mm]\.?)?$/,"").trim();
+
+  let m;
+  if((m = s.match(/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})$/)))          /* 1995-05-12 */
+    return m[1]+"-"+pad2(+m[2])+"-"+pad2(+m[3]);
+  if((m = s.match(/^(\d{1,2})[\/\-.](\d{1,2})[\/\-.](\d{2,4})$/))){    /* 12/05/1995 */
+    let y=+m[3]; if(y<100) y += y>30? 1900 : 2000;
+    return y+"-"+pad2(+m[2])+"-"+pad2(+m[1]);                          /* day first */
+  }
+  if((m = s.match(/^(\d{1,2})[ \-]([A-Za-z]{3,})[ \-,]*(\d{2,4})$/))){    /* 12-May-1995 */
+    const mi = MONS.findIndex(x=>x.toLowerCase().startsWith(m[2].toLowerCase().slice(0,3)));
+    let y=+m[3]; if(y<100) y += y>30? 1900 : 2000;
+    if(mi>=0) return y+"-"+pad2(mi+1)+"-"+pad2(+m[1]);
+  }
+  if((m = s.match(/^([A-Za-z]{3,})[ \-]+(\d{1,2})[ \-,]+(\d{2,4})$/))){   /* May 12, 1995 */
+    const mi = MONS.findIndex(x=>x.toLowerCase().startsWith(m[1].toLowerCase().slice(0,3)));
+    let y=+m[3]; if(y<100) y += y>30? 1900 : 2000;
+    if(mi>=0) return y+"-"+pad2(mi+1)+"-"+pad2(+m[2]);
+  }
+  return s;                       /* not understood — the preview will flag it */
+}
+const HEAD_MAP = {
+  name:["name","employee name","employee","staff name","full name"],
+  branch:["branch","store","location","showroom","unit"],
+  dept:["dept","department","section","category"],
+  dob:["dob","date of birth","birth date","birthday","d.o.b","dateofbirth"],
+  phone:["phone","mobile","mobile number","mobile no","phone number","contact","contact number","whatsapp","cell"]
+};
+function mapRow(obj){
+  const out={name:"",branch:"",dept:"",dob:"",phone:""};
+  Object.keys(obj).forEach(k=>{
+    const key=String(k).toLowerCase().replace(/[^a-z. ]/g,"").trim();
+    Object.keys(HEAD_MAP).forEach(f=>{ if(HEAD_MAP[f].includes(key) && !out[f]) out[f]=obj[k]; });
+  });
+  out.name=String(out.name||"").trim(); out.branch=String(out.branch||"").trim();
+  out.dept=String(out.dept||"").trim();
+  const rawDob = out.dob;
+  out.dob=normDob(out.dob);
+  out.phone=out.phone===""? "" : normPhone(out.phone);
+  out.raw = rawDob==null? "" :
+    (rawDob && typeof rawDob.getTime === "function" ? "(date cell)" : String(rawDob).trim());
+  return out;
+}
+function parseCsv(text){
+  const rows=[]; let row=[],cell="",q=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(q){ if(c==='"'){ if(text[i+1]==='"'){cell+='"';i++;} else q=false; } else cell+=c; }
+    else if(c==='"') q=true;
+    else if(c===","){ row.push(cell); cell=""; }
+    else if(c==="\n"){ row.push(cell); rows.push(row); row=[]; cell=""; }
+    else if(c!=="\r") cell+=c;
+  }
+  if(cell||row.length){ row.push(cell); rows.push(row); }
+  const head=(rows.shift()||[]).map(h=>h.trim());
+  return rows.filter(r=>r.some(c=>String(c).trim())).map(r=>{
+    const o={}; head.forEach((h,i)=>o[h]=r[i]); return o;
+  });
+}
+let importRows=[];
+function importSheetView(){
+  openSheet({
+    title:"Import employees", wide:true, full:true,
+    body:'<p class="muted tiny" style="margin:0 0 14px;line-height:1.6">Pick an Excel or CSV file with columns for '+
+      '<b>Employee Name</b>, <b>Mobile Number</b>, <b>Branch</b>, <b>Department</b> and <b>Date of Birth</b>. '+
+      'Age is worked out from the date of birth, so no age column is needed. Nothing is added until you confirm.</p>'+
+      '<button class="btn btn-ghost btn-block" data-act="pick-import">'+ic("up")+'Choose a file</button>'+
+      '<div id="importPreview" style="margin-top:16px"></div>'
+  });
+}
+function showImportPreview(rows){
+  importRows = rows.map(r=>{
+    const bad = !r.name ? "No name"
+              : (r.dob && !validDob(r.dob)) ? "Date not understood"
+              : (r.phone && !validPhone(r.phone)) ? "Mobile number not valid" : "";
+    const dup = !bad && DB.emp.some(p=>p.name.toLowerCase()===r.name.toLowerCase());
+    return Object.assign({},r,{bad:bad,dup:dup});
+  });
+  const good = importRows.filter(r=>!r.bad);
+  const dups = good.filter(r=>r.dup).length;
+  const box=$("#importPreview"); if(!box) return;
+  box.innerHTML =
+    '<div class="chips" style="margin-bottom:var(--s3);flex-wrap:wrap">'+
+      '<span class="pill">'+importRows.length+' rows</span>'+
+      '<span class="pill pill-violet">'+good.length+' usable</span>'+
+      (dups? '<span class="pill pill-gold">'+dups+' already here</span>' : '')+
+      ((importRows.length-good.length)? '<span class="pill pill-pink">'+(importRows.length-good.length)+' unusable</span>' : '')+
+    '</div>'+
+    (importRows.length? '<div class="tblwrap"><table class="mini"><thead><tr><th>Name</th><th>Mobile</th><th>Branch</th><th>Dept</th><th>In your file</th><th>Will be saved</th><th>Note</th></tr></thead><tbody>'+
+      importRows.slice(0,300).map(r=>'<tr class="'+(r.bad?"bad":r.dup?"dup":"")+'"><td>'+esc(r.name||"—")+'</td>'+
+        '<td>'+esc(r.phone? phoneDisplay(r.phone):"—")+'</td><td>'+esc(r.branch)+
+        '</td><td>'+esc(r.dept)+'</td><td>'+esc(r.raw||"—")+'</td>'+
+        '<td>'+(validDob(r.dob)? esc(dayLong(parseYmd(r.dob))+" "+r.dob.slice(0,4)) : esc(r.dob||"—"))+'</td>'+
+        '<td>'+esc(r.bad||(r.dup?"Already on the list":""))+'</td></tr>').join("")+
+      '</tbody></table></div>' : '')+
+    (good.length? '<div class="btnrow" style="margin-top:14px">'+
+      '<button class="btn btn-primary" data-act="import-add">'+ic("plus")+'Add '+good.length+'</button>'+
+      '<button class="btn btn-ghost" data-act="import-replace">'+ic("refresh")+'Replace all</button></div>'+
+      '<p class="tiny muted" style="margin-top:10px">Add keeps everyone already on the list. Replace deletes the current '+DB.emp.length+' records first.</p>'
+      : '<p class="tiny" style="color:#FF89B4;margin-top:12px">Nothing in this file can be imported. Check that the first row holds the column names.</p>');
+}
+async function handleImportFile(file){
+  try{
+    if(/\.csv$/i.test(file.name)){
+      const text = await file.text();
+      showImportPreview(parseCsv(text).map(mapRow));
+    }else{
+      const XLSX = await loadSheetJs();
+      const buf = await file.arrayBuffer();
+      const wb = XLSX.read(buf,{type:"array",cellDates:true});
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      showImportPreview(XLSX.utils.sheet_to_json(ws,{defval:""}).map(mapRow));
+    }
+  }catch(e){
+    toast("That file could not be read","bad");
+  }
+}
+function rowsForExport(){
+  return DB.emp.slice().sort((a,b)=>a.name.localeCompare(b.name))
+    .map(p=>({
+      "Employee Name":p.name,
+      "Mobile Number":p.phone? phoneDisplay(p.phone) : "",
+      "Branch":p.branch,
+      "Department":p.dept,
+      "Date of Birth":p.dob,
+      "Age":ageNow(p)==null? "" : ageNow(p)
+    }));
+}
+function download(blob,name){
+  const u=URL.createObjectURL(blob), a=document.createElement("a");
+  a.href=u; a.download=name; document.body.appendChild(a); a.click();
+  setTimeout(()=>{ a.remove(); URL.revokeObjectURL(u); },600);
+}
+function exportCsv(){
+  const rows=rowsForExport(), head=Object.keys(rows[0]||{"Employee Name":""});
+  const q = v => '"'+String(v==null?"":v).replace(/"/g,'""')+'"';
+  const csv=[head.join(",")].concat(rows.map(r=>head.map(h=>q(r[h])).join(","))).join("\n");
+  download(new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}), "kidss-talk-employees.csv");
+  toast("CSV downloaded","ok");
+}
+async function exportXlsx(){
+  try{
+    const XLSX = await loadSheetJs();
+    const ws = XLSX.utils.json_to_sheet(rowsForExport());
+    ws["!cols"]=[{wch:28},{wch:18},{wch:14},{wch:18},{wch:14},{wch:6}];
+    const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,"Employees");
+    XLSX.writeFile(wb,"kidss-talk-employees.xlsx");
+    toast("Excel file downloaded","ok");
+  }catch(e){ toast("Excel needs internet — sending a CSV instead"); exportCsv(); }
+}
+function backupNow(){
+  const blob=new Blob([JSON.stringify({app:"kidss-talk-birthday",v:2,saved:new Date().toISOString(),
+    employees:DB.emp, settings:DB.cfg},null,2)],{type:"application/json"});
+  download(blob,"kidss-talk-backup-"+ymd(today())+".json");
+  toast("Backup downloaded","ok");
+}
+function restoreFrom(file){
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const d=JSON.parse(r.result);
+      if(!d || !Array.isArray(d.employees)) throw new Error("shape");
+      confirmSheet({
+        title:"Restore this backup?", danger:true, yes:"Restore",
+        text:"It holds "+d.employees.length+" people and will replace the "+DB.emp.length+" now on this device.",
+        onYes(){
+          DB.replaceAll(d.employees);
+          if(d.settings) DB.patch(Object.assign({},DEFAULTS,d.settings));
+          DB.saveNow(); applyTheme(); closeSheet(); refresh();
+          toast("Backup restored","ok");
+        }
+      });
+    }catch(e){ toast("That file is not a Kidss Talk backup","bad"); }
+  };
+  r.readAsText(file);
+}
+
+
+/* ---------------- 7. CELEBRATION CARD ---------------- */
+const CARD_W = 1080, CARD_H = 1350, PER_PAGE = 5;
+const SANS = '"Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif';
+const SERIF = '"Instrument Serif",Georgia,"Times New Roman",serif';
+
+function rrect(x,cx,cy,w,h,r){
+  x.beginPath();
+  x.moveTo(cx+r,cy); x.arcTo(cx+w,cy,cx+w,cy+h,r); x.arcTo(cx+w,cy+h,cx,cy+h,r);
+  x.arcTo(cx,cy+h,cx,cy,r); x.arcTo(cx,cy,cx+w,cy,r); x.closePath();
+}
+function tt(x,text,cx,cy,sp,align){
+  const s=String(text), w=s.split("").reduce((n,c)=>n+x.measureText(c).width+sp,0)-sp;
+  let px = align==="center" ? cx-w/2 : align==="right" ? cx-w : cx;
+  for(const c of s){ x.fillText(c,px,cy); px += x.measureText(c).width+sp; }
+  return w;
+}
+function fitFont(x,text,maxW,size,min,weight,family){
+  let s=size;
+  do{ x.font=(weight?weight+" ":"")+s+"px "+(family||SANS); if(x.measureText(text).width<=maxW) break; s-=2; }
+  while(s>min);
+  return s;
+}
+function glow(x,cx,cy,r,colour,alpha){
+  const g=x.createRadialGradient(cx,cy,0,cx,cy,r);
+  g.addColorStop(0,"rgba("+colour+","+alpha+")"); g.addColorStop(1,"rgba("+colour+",0)");
+  x.fillStyle=g; x.fillRect(cx-r,cy-r,r*2,r*2);
+}
+/* Cake and sparkle drawn with plain canvas commands — no Path2D, so it renders
+   identically in every browser and can be checked in the build. */
+function drawSpark(x,cx,cy,r,colour,alpha){
+  x.save(); x.globalAlpha=alpha==null?1:alpha; x.fillStyle=colour; x.beginPath();
+  x.moveTo(cx,cy-r);
+  x.quadraticCurveTo(cx+r*.2,cy-r*.2,cx+r,cy);
+  x.quadraticCurveTo(cx+r*.2,cy+r*.2,cx,cy+r);
+  x.quadraticCurveTo(cx-r*.2,cy+r*.2,cx-r,cy);
+  x.quadraticCurveTo(cx-r*.2,cy-r*.2,cx,cy-r);
+  x.fill(); x.restore();
+}
+/* Draws one 1080×1350 celebration card. Pure canvas — no DOM. */
+function drawCard(x,opt){
+  const cfg = opt.cfg||DB.cfg, rows = opt.rows||[], pad = 78;
+  const light = cfg.theme === "light";
+  const ink = light? "#17151F" : "#F6F5FA", ink2 = light? "#5D5A6B" : "#A6A3B5";
+  const gold = light? "#A9741F" : "#E9C46A";
+
+  x.fillStyle = light? "#F7F5FA" : "#0B0B12";
+  x.fillRect(0,0,CARD_W,CARD_H);
+  if(!light){
+    glow(x,180,-60,760,"155,123,255",.34);
+    glow(x,980,240,620,"255,92,154",.20);
+    glow(x,560,1420,760,"92,200,255",.13);
+  }else{
+    glow(x,180,-60,700,"155,123,255",.20);
+    glow(x,980,220,560,"255,92,154",.14);
+  }
+  /* confetti specks */
+  const spec=["#E9C46A","#FF6FAE","#9B7BFF","#5CC8FF"];
+  let seed = 7;
+  const rnd = ()=> (seed = (seed*1103515245+12345) % 2147483648) / 2147483648;
+  for(let i=0;i<46;i++){
+    const px=rnd()*CARD_W, py=rnd()*CARD_H, s=4+rnd()*7;
+    x.save(); x.globalAlpha=.2+rnd()*.3; x.translate(px,py); x.rotate(rnd()*6.28);
+    x.fillStyle=spec[(rnd()*spec.length)|0]; x.fillRect(-s/2,-s/4,s,s/2); x.restore();
+  }
+
+  /* header */
+  x.textBaseline="alphabetic";
+  x.fillStyle=gold; x.font='800 22px '+SANS;
+  tt(x,String(cfg.company||"KIDSS TALK").toUpperCase(),pad,pad+42,6.5,"left");
+  x.fillStyle=ink2; x.font='600 19px '+SANS;
+  tt(x,String(cfg.tagline||"").toUpperCase(),pad,pad+76,4.2,"left");
+
+  /* the same gold spark used as the app's brand mark */
+  drawSpark(x,CARD_W-pad-38,pad+48,40,gold);
+  drawSpark(x,CARD_W-pad-38,pad+48,16,light? "#F3E2BC":"#FFE8B2");
+  drawSpark(x,CARD_W-pad-2,pad+18,15,gold,.95);
+  drawSpark(x,CARD_W-pad-96,pad+26,11,"#FF6FAE",.9);
+  drawSpark(x,CARD_W-pad-88,pad+86,9,"#9B7BFF",.85);
+
+  x.fillStyle=ink; x.font='128px '+SERIF;
+  x.fillText("Birthday",pad,pad+238);
+  x.fillStyle="#FF6FAE"; x.font='128px '+SERIF;
+  x.fillText("Celebrations",pad,pad+352);
+
+  /* week chip */
+  const label = opt.label||"";
+  x.font='700 25px '+SANS;
+  const cw = label.split("").reduce((n,c)=>n+x.measureText(c).width+2.6,0)+56;
+  rrect(x,pad,pad+400,cw,60,30);
+  x.fillStyle = light? "rgba(155,123,255,.14)" : "rgba(255,255,255,.07)"; x.fill();
+  x.strokeStyle = light? "rgba(155,123,255,.4)" : "rgba(255,255,255,.16)"; x.lineWidth=1.6; x.stroke();
+  x.fillStyle = light? "#5B3FCF" : "#D9CBFF";
+  tt(x,label,pad+28,pad+439,2.6,"left");
+
+  const n = opt.total==null? rows.length : opt.total;
+  x.fillStyle=ink2; x.font='600 25px '+SANS;
+  x.fillText(n+(n===1?" celebration":" celebrations")+" this week", pad+cw+26, pad+439);
+
+  /* rows */
+  let y = pad + 520;
+  const rowH = Math.min(148, (CARD_H-260-y)/Math.max(1,rows.length));
+  rows.forEach(r=>{
+    const p=r.p, cy=y+rowH/2-8;
+    /* avatar */
+    const h=hueOf(p.name), R=48;
+    const g=x.createLinearGradient(pad,cy-R,pad+R*2,cy+R);
+    g.addColorStop(0,"hsl("+h+" 72% 58%)"); g.addColorStop(1,"hsl("+((h+42)%360)+" 76% 52%)");
+    x.beginPath(); x.arc(pad+R,cy,R,0,6.2832); x.fillStyle=g; x.fill();
+    x.strokeStyle="rgba(255,255,255,.22)"; x.lineWidth=2; x.stroke();
+    x.fillStyle="#fff"; x.font='800 34px '+SANS; x.textAlign="center";
+    x.fillText(initials(p.name),pad+R,cy+12); x.textAlign="left";
+
+    /* name + meta */
+    const tx=pad+R*2+30, dateW=210, maxW=CARD_W-pad-tx-dateW;
+    x.fillStyle=ink; fitFont(x,p.name,maxW,50,26,"",SERIF);
+    x.fillText(p.name,tx,cy-2);
+    x.fillStyle=ink2; x.font='600 22px '+SANS;
+    const a = (cfg.showAge!==false) ? ageNow(p, r.date) : null;
+    const meta=[(a!=null? "Age "+a : ""),p.dept,p.branch].filter(Boolean).join("  •  ")||"Kidss Talk";
+    fitFont(x,meta,maxW,22,15,"600");
+    x.fillText(meta,tx,cy+32);
+
+    /* date */
+    x.font='800 21px '+SANS; x.fillStyle=gold;
+    tt(x,DOW3[r.date.getDay()].toUpperCase()+"  "+r.date.getDate()+" "+MON3[r.date.getMonth()].toUpperCase(),
+       CARD_W-pad,cy+8,2.4,"right");
+
+    y += rowH;
+    if(y < CARD_H-260){
+      x.strokeStyle = light? "rgba(20,16,40,.09)" : "rgba(255,255,255,.08)";
+      x.lineWidth=1; x.beginPath(); x.moveTo(pad,y-6); x.lineTo(CARD_W-pad,y-6); x.stroke();
+    }
+  });
+
+  /* note */
+  const nh=118, ny=CARD_H-pad-nh-58;
+  rrect(x,pad,ny,CARD_W-pad*2,nh,26);
+  x.fillStyle = light? "rgba(155,123,255,.10)" : "rgba(255,255,255,.05)"; x.fill();
+  x.strokeStyle = light? "rgba(155,123,255,.3)" : "rgba(255,255,255,.12)"; x.lineWidth=1.5; x.stroke();
+  drawSpark(x,pad+52,ny+nh/2,19,gold);
+  drawSpark(x,pad+72,ny+nh/2+21,8,"#FF6FAE",.85);
+  x.fillStyle=ink; x.font='800 21px '+SANS;
+  tt(x,"A NOTE FOR THE TEAM",pad+96,ny+50,3.2,"left");
+  x.fillStyle=ink2; x.font='500 22px '+SANS;
+  x.fillText("Do take a moment to wish them on their special day.",pad+96,ny+86);
+
+  /* footer */
+  x.fillStyle = light? "#8B879B" : "#6E6B7D"; x.font='700 18px '+SANS;
+  tt(x,"HUMAN RESOURCES",pad,CARD_H-52,3.4,"left");
+  x.fillStyle = opt.pages>1 ? gold : (light? "#8B879B":"#6E6B7D");
+  tt(x, opt.pages>1 ? "PAGE "+opt.page+" OF "+opt.pages : String(cfg.company||"").toUpperCase(),
+     CARD_W-pad, CARD_H-52, 3.4, "right");
+}
+
+/* ---- report sheet ---- */
+let cardCanvases=[], cardPage=0;
+function buildCards(){
+  const mon=currentMonday(), all=weekPeople(mon);
+  const pages=Math.max(1,Math.ceil(all.length/PER_PAGE));
+  cardCanvases=[];
+  for(let i=0;i<pages;i++){
+    const c=document.createElement("canvas"); c.width=CARD_W; c.height=CARD_H;
+    drawCard(c.getContext("2d"),{
+      rows: all.slice(i*PER_PAGE,(i+1)*PER_PAGE),
+      total: all.length, label: weekLabel(mon), page:i+1, pages:pages, cfg:DB.cfg
+    });
+    cardCanvases.push(c);
+  }
+  return cardCanvases;
+}
+function reportSheet(){
+  openSheet({
+    title:"Celebration card", wide:true, full:true,
+    body:'<div class="reportwrap" id="cardHost"></div>'+
+      '<div class="pagenav" id="cardNav" hidden>'+
+        '<button class="iconbtn" data-act="card-prev" aria-label="Previous page">'+ic("left")+'</button>'+
+        '<span class="tiny muted" id="cardPageLbl"></span>'+
+        '<button class="iconbtn" data-act="card-next" aria-label="Next page">'+ic("right")+'</button>'+
+      '</div>'+
+      '<div class="btnrow" style="margin-top:16px">'+
+        '<button class="btn btn-primary" data-act="card-share">'+ic("share")+'Share image</button>'+
+        '<button class="btn btn-ghost" data-act="card-png">'+ic("down")+'PNG</button>'+
+      '</div>'+
+      '<div class="btnrow" style="margin-top:10px">'+
+        '<button class="btn btn-ghost" data-act="card-pdf">'+ic("file")+'PDF</button>'+
+        '<button class="btn btn-ghost" data-act="card-print">'+ic("print")+'Print</button>'+
+        '<button class="btn btn-ghost" data-act="md-msg">'+ic("wa")+'MD message</button>'+
+      '</div>'+
+      '<p class="tiny muted" style="margin-top:14px;line-height:1.6">The image is drawn at 1080 × 1350 — the size WhatsApp likes. '+
+      'Share opens your phone\'s share sheet; you choose the chat and press send.</p>',
+    after(){ cardPage=0; paintCardWhenReady(); }
+  });
+}
+function paintCardWhenReady(){
+  paintCard();
+  /* redraw once the display face has actually landed, so the preview matches the download */
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>{ if($("#cardHost")) paintCard(); }).catch(()=>{});
+}
+function paintCard(){
+  buildCards();
+  const host=$("#cardHost"); if(!host) return;
+  host.innerHTML=""; host.appendChild(cardCanvases[cardPage]);
+  const nav=$("#cardNav");
+  if(nav){ nav.hidden = cardCanvases.length<2;
+           $("#cardPageLbl").textContent = "Page "+(cardPage+1)+" of "+cardCanvases.length; }
+}
+function canvasBlob(c){
+  return new Promise(res=>{ c.toBlob? c.toBlob(res,"image/png") : res(null); });
+}
+async function cardPng(){
+  const mon=currentMonday();
+  for(let i=0;i<cardCanvases.length;i++){
+    const b=await canvasBlob(cardCanvases[i]);
+    if(b) download(b,"kidss-talk-birthdays-"+ymd(mon)+(cardCanvases.length>1?"-"+(i+1):"")+".png");
+  }
+  toast(cardCanvases.length>1? cardCanvases.length+" images downloaded":"Image downloaded","ok");
+}
+async function cardShare(){
+  const b = await canvasBlob(cardCanvases[cardPage]);
+  if(!b) return cardPng();
+  const file = new File([b],"kidss-talk-birthdays.png",{type:"image/png"});
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    try{ await navigator.share({files:[file], title:"Birthday Celebrations"}); toast("Shared","ok"); return; }
+    catch(e){ if(e && e.name==="AbortError") return; }
+  }
+  await cardPng();
+  toast("Saved to your downloads — attach it in WhatsApp");
+}
+/* PDF: JPEG pages wrapped by hand, so nothing has to load from the internet */
+function b64ToBytes(b64){
+  const bin=atob(b64), out=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) out[i]=bin.charCodeAt(i);
+  return out;
+}
+function buildPdf(canvases){
+  const enc=new TextEncoder(); const chunks=[]; let len=0;
+  const push = u8 => { chunks.push(u8); len+=u8.length; return len; };
+  const pushStr = s => push(enc.encode(s));
+  const offsets=[0]; const objCount=2+canvases.length*3;
+  pushStr("%PDF-1.4\n");
+  const W=595.28, H=841.89;
+  const imgs=canvases.map(c=>b64ToBytes(c.toDataURL("image/jpeg",0.94).split(",")[1]));
+  const obj=(id,body,stream)=>{
+    offsets[id]=len; pushStr(id+" 0 obj\n"+body+"\n");
+    if(stream){ pushStr("stream\n"); push(stream); pushStr("\nendstream\n"); }
+    pushStr("endobj\n");
+  };
+  const pageIds=canvases.map((_,i)=>3+i*3);
+  obj(1,"<< /Type /Catalog /Pages 2 0 R >>");
+  obj(2,"<< /Type /Pages /Kids ["+pageIds.map(i=>i+" 0 R").join(" ")+"] /Count "+pageIds.length+" >>");
+  canvases.forEach((c,i)=>{
+    const pid=3+i*3, cid=pid+1, iid=pid+2;
+    const iw=W-56, ih=iw*(c.height/c.width), top=(H-ih)/2;
+    const content=enc.encode("q "+iw.toFixed(2)+" 0 0 "+ih.toFixed(2)+" 28 "+top.toFixed(2)+" cm /I0 Do Q");
+    obj(pid,"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 "+W.toFixed(2)+" "+H.toFixed(2)+
+        "] /Resources << /XObject << /I0 "+iid+" 0 R >> >> /Contents "+cid+" 0 R >>");
+    obj(cid,"<< /Length "+content.length+" >>",content);
+    obj(iid,"<< /Type /XObject /Subtype /Image /Width "+c.width+" /Height "+c.height+
+        " /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length "+imgs[i].length+" >>",imgs[i]);
+  });
+  const xref=len;
+  let s="xref\n0 "+(objCount+1)+"\n0000000000 65535 f \n";
+  for(let i=1;i<=objCount;i++) s+=String(offsets[i]||0).padStart(10,"0")+" 00000 n \n";
+  pushStr(s);
+  pushStr("trailer\n<< /Size "+(objCount+1)+" /Root 1 0 R >>\nstartxref\n"+xref+"\n%%EOF");
+  return new Blob(chunks,{type:"application/pdf"});
+}
+
+/* ---------------- 8. ACTIONS ---------------- */
+const ACTIONS = {
+  close: closeSheet,
+  "confirm-yes"(){ const f=confirmSheet.fn; confirmSheet.fn=null; closeSheet(); f&&f(); },
+  "go-week"(){ closeSheet(); go("week"); },
+  "go-missing"(){ closeSheet(); query=""; fBranch=""; sortMode="name"; go("people");
+                  setTimeout(()=>{ query="";
+                    const box=$("#plist");
+                    if(box){ const list=DB.emp.filter(p=>!hasDob(p)).sort((a,b)=>a.name.localeCompare(b.name));
+                      box.innerHTML=list.map(p=>personCard(p)).join("");
+                      const c=$("#pcount"); if(c) c.textContent=list.length+" without a date of birth"; }
+                  },20); },
+  add(){ formSheet(null); },
+  edit(el){ formSheet(el.dataset.id); },
+  save(el){ saveForm(el.dataset.id||null); },
+  profile(el){ profileSheet(el.dataset.id); },
+  del(el){
+    const p=DB.emp.find(x=>x.id===el.dataset.id); if(!p) return;
+    confirmSheet({title:"Delete "+p.name+"?", danger:true, yes:"Delete",
+      text:"Their birthday will stop appearing everywhere in the app. This cannot be undone.",
+      onYes(){ DB.remove(p.id); toast(firstName(p.name)+" deleted","ok"); refresh(); }});
+  },
+  "row-menu"(el){
+    const p=DB.emp.find(x=>x.id===el.dataset.id); if(!p) return;
+    openSheet({ title:firstName(p.name),
+      body:'<div class="stack">'+
+        '<button class="srow" data-act="profile" data-id="'+p.id+'"><span class="ic">'+ic("user")+'</span>'+
+          '<span class="who"><span class="nm">Open profile</span></span><span class="end">'+ic("right")+'</span></button>'+
+        '<button class="srow" data-act="msg" data-id="'+p.id+'"><span class="ic">'+ic("wa")+'</span>'+
+          '<span class="who"><span class="nm">Birthday wish</span></span><span class="end">'+ic("right")+'</span></button>'+
+        '<button class="srow" data-act="edit" data-id="'+p.id+'"><span class="ic">'+ic("pencil")+'</span>'+
+          '<span class="who"><span class="nm">Edit details</span></span><span class="end">'+ic("right")+'</span></button>'+
+        '<button class="srow" data-act="del" data-id="'+p.id+'"><span class="ic" style="color:#FF89B4">'+ic("trash")+'</span>'+
+          '<span class="who"><span class="nm">Delete</span></span><span class="end">'+ic("right")+'</span></button>'+
+      '</div>' });
+  },
+  wish(el){ msgVariant=0; msgDraft=null; msgFor=null; composerSheet(el.dataset.id); },
+  msg(el){ this.wish(el); },
+  "msg-next"(el){ msgDraft=null; msgVariant++; composerSheet(el.dataset.id); },
+  "wa-send"(el){
+    const p=DB.emp.find(x=>x.id===el.dataset.id); if(!p) return;
+    const text=currentDraft();
+    openWhatsApp(validPhone(p.phone)? waNumber(p.phone) : "", text);
+    DB.logAction(p.id,"wish-whatsapp");
+  },
+  "wa-open"(el){
+    const p=DB.emp.find(x=>x.id===el.dataset.id); if(!p || !validPhone(p.phone)) return;
+    openWhatsApp(waNumber(p.phone),"");
+    DB.logAction(p.id,"wa-open");
+  },
+  call(el){
+    const p=DB.emp.find(x=>x.id===el.dataset.id); if(!p || !validPhone(p.phone)) return;
+    telDial(normPhone(p.phone)); DB.logAction(p.id,"call"); toast("Dialling "+firstName(p.name));
+  },
+  "md-msg"(){ mdMsgSheet(); },
+  "toggle-mdphones"(){
+    const on = !DB.cfg.mdPhones;
+    DB.patch({mdPhones:on});
+    mdMsgSheet();
+    toast(on? "Mobile numbers added" : "Mobile numbers removed","ok");
+  },
+  async "copy-msg"(el){
+    const t=currentDraft();
+    if(el && el.dataset.id) DB.logAction(el.dataset.id,"wish-copy");
+    toast(await copyText(t)? "Message copied ✓" : "Could not copy — select the text instead", "ok");
+  },
+  "share-msg"(){ shareText(currentDraft()); },
+  "hero-dot"(el){ heroIdx=+el.dataset.i; render(); },
+  "week-prev"(){ anchor=addDays(currentMonday(),-7); render(); },
+  "week-next"(){ anchor=addDays(currentMonday(),7); render(); },
+  "week-this"(){ anchor=mondayOf(today()); render(); },
+  "week-pick"(){
+    openSheet({title:"Pick a week",
+      body:'<p class="tiny muted" style="margin:0 0">Choose any date and the week containing it opens.</p>'+
+        '<div class="field filled"><input id="pickd" type="date" placeholder=" " value="'+ymd(currentMonday())+'"><label for="pickd">Date</label></div>',
+      foot:'<button class="btn btn-quiet" data-act="close">Cancel</button>'+
+           '<button class="btn btn-primary" data-act="week-set">'+ic("check")+'Show week</button>'});
+  },
+  "week-set"(){ const v=$("#pickd").value; if(validDob(v)){ anchor=mondayOf(parseYmd(v)); closeSheet(); render(); } },
+  report(){ reportSheet(); },
+  "card-prev"(){ if(cardPage>0){ cardPage--; paintCard(); } },
+  "card-next"(){ if(cardPage<cardCanvases.length-1){ cardPage++; paintCard(); } },
+  "card-png"(){ toast("Preparing your card…"); cardPng(); },
+  "card-share"(){ cardShare(); },
+  "card-pdf"(){ download(buildPdf(cardCanvases),"kidss-talk-birthdays-"+ymd(currentMonday())+".pdf"); toast("PDF downloaded","ok"); },
+  "card-print"(){
+    $("#printArea").innerHTML = cardCanvases.map(c=>'<img alt="Celebration card" src="'+c.toDataURL("image/png")+'">').join("");
+    setTimeout(()=>window.print(),120);
+  },
+  "cal-prev"(){ calM--; if(calM<0){ calM=11; calY--; } calSel=null; render(); },
+  "cal-next"(){ calM++; if(calM>11){ calM=0; calY++; } calSel=null; render(); },
+  "cal-today"(){ const t=today(); calY=t.getFullYear(); calM=t.getMonth(); calSel=t.getDate(); render(); },
+  calday(el){ const d=+el.dataset.d; calSel = calSel===d? null : d; render();
+              const s=$("#page-cal .sec"); s && s.scrollIntoView({behavior:reduceMotion()?"auto":"smooth",block:"nearest"}); },
+  branch(el){ fBranch=el.dataset.b||""; render(); },
+  sort(){ sortMode = sortMode==="next"?"name":"next"; render(); },
+  "clear-q"(){ query=""; render(); const s=$("#q"); s&&s.focus(); },
+  "sheet-company": companySheet,
+  "sheet-lists": listsSheet,
+  "sheet-appearance": appearanceSheet,
+  "sheet-templates": templatesSheet,
+  "sheet-install": installSheet,
+  "do-install"(){ runInstallPrompt(); },
+  async "copy-install-report"(){
+    toast(await copyText(installReport||"") ? "Report copied ✓" : "Could not copy — read the list instead","ok");
+  },
+  "install-later"(){ DB.patch({installHidden:true}); refresh(); },
+  "sheet-about": aboutSheet,
+  "sheet-import": importSheetView,
+  "sheet-export"(){
+    openSheet({title:"Export the list",
+      body:'<p class="tiny muted" style="margin:0 0 14px">'+DB.emp.length+' people, sorted by name, with branch, department and date of birth.</p>'+
+        '<div class="btnrow"><button class="btn btn-primary" data-act="export-xlsx">'+ic("down")+'Excel</button>'+
+        '<button class="btn btn-ghost" data-act="export-csv">'+ic("down")+'CSV</button></div>'});
+  },
+  "sheet-backup"(){
+    openSheet({title:"Backup and restore",
+      body:'<p class="tiny muted" style="margin:0 0 14px;line-height:1.6">A backup is one file holding every employee and all your settings. '+
+        'Keep one after any big change — it is the only copy if this phone is lost.</p>'+
+        '<div class="btnrow"><button class="btn btn-primary" data-act="backup">'+ic("down")+'Backup</button>'+
+        '<button class="btn btn-ghost" data-act="restore">'+ic("up")+'Restore</button></div>'});
+  },
+  "export-csv"(){ exportCsv(); closeSheet(); },
+  "export-xlsx"(){ exportXlsx(); closeSheet(); },
+  backup(){ backupNow(); closeSheet(); },
+  restore(){ pickFile(".json",restoreFrom); },
+  "pick-import"(){ pickFile(".xlsx,.xls,.csv",handleImportFile); },
+  "import-add"(){
+    const good=importRows.filter(r=>!r.bad).map(r=>({name:r.name,phone:r.phone,branch:r.branch,dept:r.dept,dob:r.dob}));
+    DB.addMany(good); closeSheet(); refresh(); toast(good.length+" people added","ok"); confettiBurst(50);
+  },
+  "import-replace"(){
+    const good=importRows.filter(r=>!r.bad).map(r=>({name:r.name,phone:r.phone,branch:r.branch,dept:r.dept,dob:r.dob}));
+    confirmSheet({title:"Replace everyone?", danger:true, yes:"Replace all",
+      text:"The "+DB.emp.length+" people now on this device will be deleted and "+good.length+" imported in their place.",
+      onYes(){ DB.replaceAll(good); refresh(); toast("List replaced","ok"); }});
+  },
+  "remove-demo"(){
+    const n=DB.emp.filter(p=>p.demo).length;
+    confirmSheet({title:"Remove demo entries?", danger:true, yes:"Remove",
+      text:n+" entries marked as demo will be deleted. Real employees are untouched.",
+      onYes(){ DB.replaceAll(DB.emp.filter(p=>!p.demo)); refresh(); toast("Demo entries removed","ok"); }});
+  },
+  "reload-master"(){
+    confirmSheet({title:"Reload the master list?", danger:true, yes:"Reload",
+      text:"Everything on this device is replaced with the original "+SEED_PEOPLE.length+" records. Take a backup first if you have made changes.",
+      onYes(){ DB.replaceAll(SEED_PEOPLE); refresh(); toast("Master list reloaded","ok"); }});
+  },
+  "save-company"(){ DB.patch({company:$("#s-company").value.trim()||"KIDSS TALK", tagline:$("#s-tagline").value.trim()});
+                    closeSheet(); refresh(); toast("Saved","ok"); },
+  "add-list"(el){
+    const k=el.dataset.k, inp=$("#add-"+k), v=inp.value.trim();
+    if(!v) return;
+    const list=(DB.cfg[k]||[]).slice();
+    if(!list.includes(v)) list.push(v);
+    list.sort((a,b)=>a.localeCompare(b));
+    DB.patch({[k]:list}); listsSheet(); toast(v+" added","ok");
+  },
+  "del-list"(el){
+    const k=el.dataset.k, v=el.dataset.v;
+    const inUse = DB.emp.some(p=> (k==="branches"? p.branch : p.dept)===v);
+    if(inUse) return toast(v+" is still used by an employee","bad");
+    DB.patch({[k]:(DB.cfg[k]||[]).filter(x=>x!==v)}); listsSheet();
+  },
+  "toggle-theme"(el){
+    const light = el.getAttribute("aria-pressed")!=="true";
+    DB.patch({ui: light? "light":"dark"}); applyTheme();
+    el.setAttribute("aria-pressed", light?"true":"false"); refresh();
+  },
+  "toggle-age"(el){
+    const onNow = el.getAttribute("aria-pressed")!=="true";
+    DB.patch({showAge:onNow}); el.setAttribute("aria-pressed", onNow?"true":"false"); refresh();
+  },
+  "toggle-agemsg"(el){
+    const onNow = el.getAttribute("aria-pressed")!=="true";
+    DB.patch({ageInMsg:onNow}); el.setAttribute("aria-pressed", onNow?"true":"false");
+  },
+  leap(el){ DB.patch({leap:el.dataset.v}); appearanceSheet(); refresh(); toast("Rule updated","ok"); },
+  cardstyle(el){ DB.patch({theme:el.dataset.v}); appearanceSheet(); toast("Card style updated","ok"); },
+  "save-templates"(){
+    DB.patch({mdMsg:$("#t-md").value, empMsg:$("#t-emp").value});
+    closeSheet(); toast("Templates saved","ok");
+  },
+  "reset-templates"(){ DB.patch({mdMsg:DEFAULT_MD, empMsg:DEFAULT_EMP}); templatesSheet(); toast("Original wording restored","ok"); }
+};
+
+document.addEventListener("click", e=>{
+  const el = e.target.closest("[data-act]");
+  if(!el || el.disabled) return;
+  const fn = ACTIONS[el.dataset.act];
+  if(fn){ e.preventDefault(); fn(el); }
+});
+document.addEventListener("keydown", e=>{
+  if(e.key==="Escape" && !$("#sheet").hidden) closeSheet();
+  if(e.key==="Enter" && e.target.closest("[data-act='hero-dot']")) e.target.click();
+});
+document.addEventListener("input", e=>{
+  if(e.target.id==="q"){ query=e.target.value; paintPeople();
+    const c=$(".search .clr"); if(!c && query) render(), $("#q").focus(); }
+});
+
+/* ---------------- 9. BOOT ---------------- */
+function applyTheme(){
+  const light = DB.cfg.ui==="light";
+  document.documentElement.dataset.theme = light? "light":"dark";
+  const m=$('meta[name="theme-color"]'); if(m) m.content = light? "#F6F5F8":"#09090B";
+  const b=$("#btnTheme"); if(b) b.innerHTML = ic(light?"moon":"sun");
+}
+function buildChrome(){
+  $("#tabbar").innerHTML = TABS.map(t=>
+    '<button data-go="'+t.id+'" aria-current="false">'+ic(t.icon)+'<span>'+t.label+'</span></button>').join("");
+  $("#sideNav").innerHTML = TABS.map(t=>
+    '<button data-go="'+t.id+'" aria-current="false">'+ic(t.icon)+'<span>'+t.label+'</span></button>').join("");
+  $$("[data-go]").forEach(b=> on(b,"click",()=>go(b.dataset.go)));
+  [ "#splashMark","#sideMark","#topMark" ].forEach(s=>{ const el=$(s); if(el) el.innerHTML=logo(); });
+  $("#sheetClose").innerHTML = ic("x");
+  $("#btnInstall").innerHTML = ic("down");
+  $("#btnInstall").hidden = isInstalled();       /* visible whether or not Android offers a prompt */
+  const st=$("#btnSettings"); if(st) st.innerHTML = ic("sliders");
+  on($("#scrim"),"click",closeSheet);
+  on($("#sheetClose"),"click",closeSheet);
+  const g=$("#greetLine"); if(g) g.textContent = greeting()+", HR 👋";
+  const s=$("#greetSub"); if(s) s.textContent = "Let's celebrate our people.";
+  const f=$("#sideFoot"); if(f) f.innerHTML = "Kidss Talk Birthdays<br>Data stays on this device";
+}
+let deferredPrompt=null;
+window.addEventListener("beforeinstallprompt", e=>{
+  e.preventDefault(); deferredPrompt=e;
+  const b=$("#btnInstall"); if(b && !isInstalled()) b.hidden=false;
+  if(page==="home") refresh();                   /* banner switches to a one-tap install */
+});
+window.addEventListener("appinstalled", ()=>{
+  deferredPrompt=null;
+  const b=$("#btnInstall"); if(b) b.hidden=true;
+  toast("Installed ✓ — open it from your home screen","ok");
+  refresh();
+});
+async function runInstallPrompt(){
+  if(!deferredPrompt) return installSheet();
+  deferredPrompt.prompt();
+  try{ await deferredPrompt.userChoice; }catch(e){}
+  deferredPrompt=null;
+  const b=$("#btnInstall"); if(b) b.hidden=true;
+}
+on($("#btnInstall"),"click", runInstallPrompt);
+on($("#btnSettings"),"click", ()=>go("more"));
+on($("#btnTheme"),"click", ()=>{
+  DB.patch({ui: DB.cfg.ui==="light"?"dark":"light"}); applyTheme(); refresh();
+});
+window.addEventListener("hashchange", ()=> go(location.hash.slice(1)||"home", false));
+
+function boot(){
+  const state = DB.load();
+  applyTheme();
+  buildChrome();
+  go(location.hash.slice(1)||"home", false);
+  if(!Store.ok()) toast("This browser blocks storage — changes will not be kept","bad");
+  const t=today(), born=peopleOn(t);
+  setTimeout(()=>{
+    const sp=$("#splash"); if(sp) sp.classList.add("gone");
+    if(born.length) setTimeout(()=>confettiBurst(70),320);
+  }, 620);
+  if("serviceWorker" in navigator && location.protocol.startsWith("http")){
+    window.addEventListener("load", ()=>
+      navigator.serviceWorker.register("sw.js")
+        .catch(e=>{ window.__swError = e && e.message ? e.message : String(e); }));
+  }else if(!("serviceWorker" in navigator)){
+    window.__swError = "This browser has no service worker support.";
+  }else{
+    window.__swError = "Not registered: the page is on "+location.protocol+", not https.";
+  }
+  return state;
+}
+
+/* test hook — used by the build's checks, harmless in the app */
+window.KT = { DB, Store, KEY, DEFAULTS, SEED_PEOPLE, boot, go, render, refresh,
+  today, addDays, mondayOf, ymd, parseYmd, validDob, celebrationIn, occursOn, nextOn, daysTo,
+  turningAge, ageNow, normPhone, validPhone, phoneDisplay, waNumber, peopleOn, weekDays, weekPeople, upcoming, monthMap, weekLabel, initials, firstName,
+  normDob, mapRow, parseCsv, fillMsg, mdMessageText, isInstalled, runInstallChecks, empTemplates, drawCard, buildCards, buildPdf, rowsForExport,
+  CARD_W, CARD_H, PER_PAGE, hueOf,
+  set anchorWeek(v){ anchor=v; }, get anchorWeek(){ return anchor; } };
+
+boot();
+
+</script>
+</body>
+</html>
